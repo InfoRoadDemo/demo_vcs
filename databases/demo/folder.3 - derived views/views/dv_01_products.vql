@@ -1,11 +1,9 @@
 ﻿CREATE OR REPLACE VIEW dv_01_products FOLDER = '/3 - derived views'
-    PRIMARY KEY ( 'product_id' ) AS SELECT product_id, category, brand, product_name, description FROM (SELECT * FROM p_xlsx_products_clothing UNION SELECT description, product_name, category, product_id, brand FROM p_xlsx_products_electronics);
+    PRIMARY KEY ( 'product_id' ) AS SELECT product_id, category, brand, product_name, description FROM (SELECT * FROM p_xlsx_products_clothing UNION SELECT description, product_name, category, product_id, brand FROM p_xlsx_products_electronics) WHERE product_id is not null ;
 
 ALTER VIEW dv_01_products
  LAYOUT (p_xlsx_products_clothing = [20, 20, 200, 126], p_xlsx_products_electronics = [250, 20, 200, 126]);
 
 ALTER VIEW dv_01_products
- CACHE FULL
-     BATCHSIZEINCACHE DEFAULT TIMETOLIVEINCACHE NOEXPIRE
-     DELEGATESTATSQUERY = false;
+ CACHE FULL TIMETOLIVEINCACHE NOEXPIRE;
 
