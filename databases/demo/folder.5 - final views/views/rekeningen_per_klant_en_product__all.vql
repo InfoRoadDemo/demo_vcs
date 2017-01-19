@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW rekeningen_per_klant_en_product__all FOLDER = '/5 - final views' AS SELECT dv_02_bills.name AS klant_naam, dv_02_bills.surname AS klant_voornaam, dv_02_bills.client_type AS klant_type, dv_02_bills.product_name AS product_naam, dv_02_bills.brand AS product_merk, dv_02_bills.category AS product_categorie, dv_02_bills.amount_due AS verschuldigd_bedrag, dv_02_bills.due_date AS aankoop_datum, dv_02_bills.street AS klant_straat, dv_02_bills.city AS klant_gemeente, dv_02_bills.zip AS klant_postcode, dv_02_bills.state AS klant_staat, dv_02_bills.primary_phone AS klant_telefoon, dv_02_bills.client_id AS klant_id FROM dv_02_bills;
+
+ALTER VIEW rekeningen_per_klant_en_product__all
+ LAYOUT (dv_02_bills = [20, 20, 200, 306]);
+

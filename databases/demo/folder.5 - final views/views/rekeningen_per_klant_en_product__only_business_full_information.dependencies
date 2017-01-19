@@ -22,4 +22,4 @@
 /databases/demo/folder.3 - derived views/folder.projections/views/p_sql_addresses.vql
 /databases/demo/folder.3 - derived views/views/dv_01_client_information.vql
 /databases/demo/folder.3 - derived views/views/dv_02_bills.vql
-/databases/demo/folder.5 - final views/views/rekeningen_per_klant_en_product_all.vql
+/databases/demo/folder.5 - final views/views/rekeningen_per_klant_en_product__all.vql
