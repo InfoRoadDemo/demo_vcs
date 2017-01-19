@@ -1,0 +1,6 @@
+﻿CREATE OR REPLACE VIEW dv_01_client_information FOLDER = '/3 - derived views'
+    PRIMARY KEY ( 'client_id' ) AS SELECT p_sql_clients.client_id AS client_id, p_sql_clients.name AS name, p_sql_clients.surname AS surname, p_sql_client_types.value AS client_type, p_sql_addresses.street AS street, p_sql_addresses.city AS city, p_sql_addresses.zip AS zip, p_sql_addresses.state AS state, p_sql_addresses.primary_phone AS primary_phone FROM (p_sql_clients AS p_sql_clients LEFT OUTER JOIN p_sql_client_types AS p_sql_client_types ON p_sql_clients.client_type = p_sql_client_types.code ) LEFT OUTER JOIN p_sql_addresses AS p_sql_addresses ON p_sql_clients.client_id = p_sql_addresses.client_fid ;
+
+ALTER VIEW dv_01_client_information
+ LAYOUT (p_sql_clients = [20, 20, 200, 106], p_sql_client_types = [270, 230, 200, 66], p_sql_addresses = [480, 20, 200, 146]);
+

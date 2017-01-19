@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW adressen FOLDER = '/6 - web services/model_bills' AS SELECT p_sql_addresses.client_fid AS klant_id, p_sql_addresses.street AS straat, p_sql_addresses.city AS gemeente, p_sql_addresses.zip AS postcode, p_sql_addresses.state AS staat, p_sql_addresses.primary_phone AS telefoon_nummer FROM p_sql_addresses;
+
+ALTER VIEW adressen
+ LAYOUT (p_sql_addresses = [20, 20, 200, 146]);
+

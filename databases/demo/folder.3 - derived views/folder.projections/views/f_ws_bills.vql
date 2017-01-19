@@ -1,0 +1,11 @@
+﻿CREATE OR REPLACE VIEW f_ws_bills FOLDER = '/3 - derived views/projections'
+    PRIMARY KEY ( 'customer_id' ) AS SELECT ssn, billing_end_date, phone_center, due_date, balance, billing_period_id, billing_start_date, billing_id, customer_id, package_id, amount_due, tax_id FROM FLATTEN bv_ws_bills AS v ( v.return) WHERE v.package_id is not null ;
+
+ALTER VIEW f_ws_bills
+ LAYOUT (bv_ws_bills = [20, 20, 256, 286]);
+
+ALTER VIEW f_ws_bills
+ CACHE FULL
+     BATCHSIZEINCACHE DEFAULT TIMETOLIVEINCACHE NOEXPIRE
+     DELEGATESTATSQUERY = false;
+

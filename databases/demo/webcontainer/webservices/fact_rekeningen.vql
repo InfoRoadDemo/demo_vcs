@@ -1,0 +1,5 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+UNDEPLOY IF EXISTS WEBSERVICE fact_rekeningen;
+
+DEPLOY WEBSERVICE fact_rekeningen LOGIN = '${databases.demo.webcontainer.webservices.fact_rekeningen.LOGIN}' PASSWORD = '${databases.demo.webcontainer.webservices.fact_rekeningen.PASSWORD}' ${databases.demo.webcontainer.webservices.fact_rekeningen.PASSWORD.ENCRYPTED};
+

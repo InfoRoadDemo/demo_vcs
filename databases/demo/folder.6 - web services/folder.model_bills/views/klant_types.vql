@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW klant_types FOLDER = '/6 - web services/model_bills' AS SELECT p_sql_client_types.code AS type_id, p_sql_client_types.value AS type FROM p_sql_client_types;
+
+ALTER VIEW klant_types
+ LAYOUT (p_sql_client_types = [20, 20, 200, 65]);
+

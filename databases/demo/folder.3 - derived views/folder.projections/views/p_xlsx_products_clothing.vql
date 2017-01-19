@@ -1,0 +1,6 @@
+﻿CREATE OR REPLACE VIEW p_xlsx_products_clothing FOLDER = '/3 - derived views/projections'
+    PRIMARY KEY ( 'product_id' ) AS SELECT bv_xlsx_products_clothing.product_id AS product_id, bv_xlsx_products_clothing.category AS category, bv_xlsx_products_clothing.brand AS brand, bv_xlsx_products_clothing.product_name AS product_name, bv_xlsx_products_clothing.description AS description FROM bv_xlsx_products_clothing;
+
+ALTER VIEW p_xlsx_products_clothing
+ LAYOUT (bv_xlsx_products_clothing = [20, 20, 200, 105]);
+

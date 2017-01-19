@@ -1,0 +1,6 @@
+﻿CREATE OR REPLACE VIEW p_xlsx_products_electronics FOLDER = '/3 - derived views/projections'
+    PRIMARY KEY ( 'product_id' ) AS SELECT bv_xlsx_products_electronics.product_id AS product_id, bv_xlsx_products_electronics.category AS category, bv_xlsx_products_electronics.brand AS brand, bv_xlsx_products_electronics.product_name AS product_name, bv_xlsx_products_electronics.description AS description FROM bv_xlsx_products_electronics;
+
+ALTER VIEW p_xlsx_products_electronics
+ LAYOUT (bv_xlsx_products_electronics = [20, 20, 214, 105]);
+

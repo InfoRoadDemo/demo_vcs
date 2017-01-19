@@ -1,0 +1,49 @@
+﻿CREATE OR REPLACE REST WEBSERVICE fact_rekeningen
+    CONNECTION (
+        CHUNKSIZE = 1000
+        CHUNKTIMEOUT = 90000
+        QUERYTIMEOUT = 4000000
+        POOLENABLED = true
+        POOLINITSIZE = 0
+        POOLMAXACTIVE = 30
+    )
+    DEFAULTREPRESENTATION = HTML
+    SUPPORTEDREPRESENTATIONS (HTML, XML, JSON)
+    RESOURCES (
+        VIEW fact_rekeningen FIELDS (
+            verval_dag : 'date', 
+            aankoop_datum : 'text', 
+            klant_id : 'text' INPUT_ONLY, 
+            product_id : 'text' INPUT_ONLY, 
+            verschuldigd_bedrag : 'double'
+        ),
+        VIEW adressen FIELDS (
+            klant_id : 'text' INPUT_ONLY, 
+            straat : 'text', 
+            gemeente : 'text', 
+            postcode : 'text', 
+            staat : 'text', 
+            telefoon_nummer : 'text'
+        ),
+        VIEW klant_types FIELDS (
+            type_id : 'text' INPUT_ONLY, 
+            type : 'text'
+        ),
+        VIEW klanten FIELDS (
+            klant_id : 'text' INPUT_ONLY, 
+            naam : 'text', 
+            voornaam : 'text', 
+            klant_type_id : 'text' INPUT_ONLY
+        ),
+        VIEW producten FIELDS (
+            product_id : 'text' INPUT_ONLY, 
+            categorie : 'text', 
+            merk : 'text', 
+            product_naam : 'text', 
+            beschrijving : 'text'
+        )
+    )
+    ASSOCIATIONS ( a_fact_rekeningen_producten, a_klanten_adressen, a_klanten_fact_rekeningen, a_klanten_klant_types )
+    OPTIONS ( NULLVALUESASEMPTYXMLELEMENTS = false ) 
+    FOLDER = '/6 - web services/model_bills';
+

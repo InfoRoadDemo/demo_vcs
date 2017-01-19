@@ -1,0 +1,9 @@
+﻿CREATE OR REPLACE ASSOCIATION a_fact_rekeningen_producten REFERENTIAL CONSTRAINT 
+FOLDER = '/6 - web services/model_bills/associations'
+    ENDPOINT product fact_rekeningen (0,*)
+    ENDPOINT rekening_van_product producten PRINCIPAL (1)
+    ADD MAPPING fact_rekeningen.product_id=producten.product_id;
+
+ALTER ASSOCIATION a_fact_rekeningen_producten
+ LAYOUT (fact_rekeningen = [20, 20, 200, 126], producten = [250, 20, 200, 126]);
+

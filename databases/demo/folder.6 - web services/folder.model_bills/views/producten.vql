@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW producten FOLDER = '/6 - web services/model_bills' AS SELECT dv_01_products.product_id AS product_id, dv_01_products.category AS categorie, dv_01_products.brand AS merk, dv_01_products.product_name AS product_naam, dv_01_products.description AS beschrijving FROM dv_01_products;
+
+ALTER VIEW producten
+ LAYOUT (dv_01_products = [20, 20, 200, 126]);
+

@@ -1,0 +1,24 @@
+﻿/databases/demo/folder.5 - final views/5 - final views.vql
+/databases/demo/folder.3 - derived views/3 - derived views.vql
+/databases/demo/folder.3 - derived views/folder.projections/projections.vql
+/databases/demo/folder.2 - base views/2 - base views.vql
+/databases/demo/folder.1 - data sources/1 - data sources.vql
+/databases/demo/folder.1 - data sources/datasources/ws/ds_soap_webservice.vql
+/databases/demo/folder.2 - base views/views/bv_ws_bills.vql
+/databases/demo/folder.3 - derived views/folder.projections/views/f_ws_bills.vql
+/databases/demo/folder.1 - data sources/datasources/custom/products_clothing.vql
+/databases/demo/folder.2 - base views/views/bv_xlsx_products_clothing.vql
+/databases/demo/folder.3 - derived views/folder.projections/views/p_xlsx_products_clothing.vql
+/databases/demo/folder.1 - data sources/datasources/custom/products_electronics.vql
+/databases/demo/folder.2 - base views/views/bv_xlsx_products_electronics.vql
+/databases/demo/folder.3 - derived views/folder.projections/views/p_xlsx_products_electronics.vql
+/databases/demo/folder.3 - derived views/views/dv_01_products.vql
+/databases/demo/folder.1 - data sources/datasources/jdbc/ds_mysql.vql
+/databases/demo/folder.2 - base views/views/bv_sql_clients.vql
+/databases/demo/folder.3 - derived views/folder.projections/views/p_sql_clients.vql
+/databases/demo/folder.2 - base views/views/bv_sql_client_types.vql
+/databases/demo/folder.3 - derived views/folder.projections/views/p_sql_client_types.vql
+/databases/demo/folder.2 - base views/views/bv_sql_addresses.vql
+/databases/demo/folder.3 - derived views/folder.projections/views/p_sql_addresses.vql
+/databases/demo/folder.3 - derived views/views/dv_01_client_information.vql
+/databases/demo/folder.3 - derived views/views/dv_02_bills.vql

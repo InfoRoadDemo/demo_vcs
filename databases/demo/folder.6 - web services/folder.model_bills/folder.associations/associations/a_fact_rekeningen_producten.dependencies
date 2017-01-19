@@ -1,0 +1,19 @@
+﻿/databases/demo/folder.6 - web services/6 - web services.vql
+/databases/demo/folder.6 - web services/folder.model_bills/model_bills.vql
+/databases/demo/folder.6 - web services/folder.model_bills/folder.associations/associations.vql
+/databases/demo/folder.3 - derived views/3 - derived views.vql
+/databases/demo/folder.3 - derived views/folder.projections/projections.vql
+/databases/demo/folder.2 - base views/2 - base views.vql
+/databases/demo/folder.1 - data sources/1 - data sources.vql
+/databases/demo/folder.1 - data sources/datasources/ws/ds_soap_webservice.vql
+/databases/demo/folder.2 - base views/views/bv_ws_bills.vql
+/databases/demo/folder.3 - derived views/folder.projections/views/f_ws_bills.vql
+/databases/demo/folder.6 - web services/folder.model_bills/views/fact_rekeningen.vql
+/databases/demo/folder.1 - data sources/datasources/custom/products_clothing.vql
+/databases/demo/folder.2 - base views/views/bv_xlsx_products_clothing.vql
+/databases/demo/folder.3 - derived views/folder.projections/views/p_xlsx_products_clothing.vql
+/databases/demo/folder.1 - data sources/datasources/custom/products_electronics.vql
+/databases/demo/folder.2 - base views/views/bv_xlsx_products_electronics.vql
+/databases/demo/folder.3 - derived views/folder.projections/views/p_xlsx_products_electronics.vql
+/databases/demo/folder.3 - derived views/views/dv_01_products.vql
+/databases/demo/folder.6 - web services/folder.model_bills/views/producten.vql

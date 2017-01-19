@@ -1,0 +1,6 @@
+﻿CREATE OR REPLACE VIEW p_sql_client_types FOLDER = '/3 - derived views/projections'
+    PRIMARY KEY ( 'code' ) AS SELECT bv_sql_client_types.code AS code, bv_sql_client_types.value AS value FROM bv_sql_client_types;
+
+ALTER VIEW p_sql_client_types
+ LAYOUT (bv_sql_client_types = [20, 20, 200, 66]);
+

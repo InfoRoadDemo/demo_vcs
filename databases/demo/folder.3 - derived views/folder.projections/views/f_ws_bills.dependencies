@@ -1,0 +1,6 @@
+﻿/databases/demo/folder.3 - derived views/3 - derived views.vql
+/databases/demo/folder.3 - derived views/folder.projections/projections.vql
+/databases/demo/folder.2 - base views/2 - base views.vql
+/databases/demo/folder.1 - data sources/1 - data sources.vql
+/databases/demo/folder.1 - data sources/datasources/ws/ds_soap_webservice.vql
+/databases/demo/folder.2 - base views/views/bv_ws_bills.vql
