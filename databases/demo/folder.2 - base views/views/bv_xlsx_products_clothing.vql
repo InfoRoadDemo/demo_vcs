@@ -6,6 +6,7 @@
         description:text
     )
     FOLDER = '/2 - base views'
+    PRIMARY KEY ( 'product_id' )
     CACHE OFF
     TIMETOLIVEINCACHE DEFAULT
     ADD SEARCHMETHOD products_clothing(

@@ -22,6 +22,7 @@ CREATE OR REPLACE TABLE bv_sql_addresses I18N us_pst (
         primary_phone:text (sourcetyperadix = '10', sourcetypesize = '100', sourcetypeid = '12')
     )
     FOLDER = '/2 - base views'
+    PRIMARY KEY ( 'client_fid' )
     CACHE OFF
     TIMETOLIVEINCACHE DEFAULT
     ADD SEARCHMETHOD bv_sql_addresses(

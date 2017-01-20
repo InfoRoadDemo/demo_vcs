@@ -14,6 +14,7 @@ CREATE OR REPLACE TABLE bv_sql_client_types I18N us_pst (
         value:text (sourcetyperadix = '10', sourcetypesize = '100', sourcetypeid = '12')
     )
     FOLDER = '/2 - base views'
+    PRIMARY KEY ( 'code' )
     CACHE OFF
     TIMETOLIVEINCACHE DEFAULT
     ADD SEARCHMETHOD bv_sql_client_types(
