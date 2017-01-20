@@ -1,8 +1,8 @@
 ﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
 CREATE OR REPLACE WRAPPER JDBC bv_user_details
-    FOLDER = '/1 - data sources'
+    FOLDER = '/2 - base views'
     DATASOURCENAME=ds_mysql
-    CATALOGNAME = '${databases.demo.folder.1 - data sources.views.jdbc.bv_user_details.CATALOGNAME}'
+    CATALOGNAME = '${databases.demo.folder.2 - base views.views.jdbc.bv_user_details.CATALOGNAME}'
     RELATIONNAME='user_details' 
     OUTPUTSCHEMA (
         user_id = 'user_id' :'java.lang.Integer' (OPT) (sourcetyperadix='10', sourcetypename='INT', sourcetypeid='4', sourcetypedecimals='0', sourcetypesize='10')  NOT NULL SORTABLE,
@@ -25,9 +25,10 @@ CREATE OR REPLACE TABLE bv_user_details I18N us_pst (
         password:text (sourcetyperadix = '10', sourcetypesize = '50', sourcetypeid = '12'), 
         status:int (sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '3', sourcetypeid = '-6')
     )
-    FOLDER = '/1 - data sources'
+    FOLDER = '/2 - base views'
     CONSTRAINT 'PRIMARY' PRIMARY KEY ( 'user_id' )
     CACHE OFF
+    BATCHSIZEINCACHE DEFAULT
     TIMETOLIVEINCACHE DEFAULT
     ADD SEARCHMETHOD bv_user_details(
         I18N us_pst
