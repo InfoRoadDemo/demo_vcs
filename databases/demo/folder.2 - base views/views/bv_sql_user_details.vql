@@ -16,7 +16,7 @@ CREATE OR REPLACE WRAPPER JDBC bv_user_details
     CONSTRAINT 'PRIMARY' PRIMARY KEY ( 'user_id' )
     INDEX 'PRIMARY' CLUSTER UNIQUE PRIMARY ( 'user_id' );
 
-CREATE OR REPLACE TABLE bv_user_details I18N us_pst (
+CREATE OR REPLACE TABLE bv_sql_user_details I18N us_pst (
         user_id:int (sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10', sourcetypeid = '4', description = 'test_12'), 
         username:text (sourcetyperadix = '10', sourcetypesize = '255', sourcetypeid = '12'), 
         first_name:text (sourcetyperadix = '10', sourcetypesize = '50', sourcetypeid = '12'), 

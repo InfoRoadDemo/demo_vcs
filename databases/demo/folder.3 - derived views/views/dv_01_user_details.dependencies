@@ -2,4 +2,4 @@
 /databases/demo/folder.2 - base views/2 - base views.vql
 /databases/demo/folder.1 - data sources/1 - data sources.vql
 /databases/demo/folder.1 - data sources/datasources/jdbc/ds_mysql.vql
-/databases/demo/folder.2 - base views/views/bv_user_details.vql
+/databases/demo/folder.2 - base views/views/bv_sql_user_details.vql

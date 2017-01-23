@@ -1,6 +1,6 @@
 ﻿CREATE OR REPLACE VIEW dv_01_user_details FOLDER = '/3 - derived views'
-    PRIMARY KEY ( 'user_id' ) AS SELECT case WHEN (len(bv_user_details.user_id) = 1) THEN ('C00'||bv_user_details.user_id) ELSE ('C0'||bv_user_details.user_id) END AS user_id, bv_user_details.username AS username, bv_user_details.first_name AS first_name, bv_user_details.last_name AS last_name, bv_user_details.gender AS gender, bv_user_details.password AS password, bv_user_details.status AS status FROM bv_user_details;
+    PRIMARY KEY ( 'user_id' ) AS SELECT case WHEN (len(bv_sql_user_details.user_id) = 1) THEN ('C00'||bv_sql_user_details.user_id) ELSE ('C0'||bv_sql_user_details.user_id) END AS user_id, bv_sql_user_details.username AS username, bv_sql_user_details.first_name AS first_name, bv_sql_user_details.last_name AS last_name, bv_sql_user_details.gender AS gender, bv_sql_user_details.password AS password, bv_sql_user_details.status AS status FROM bv_sql_user_details;
 
 ALTER VIEW dv_01_user_details
- LAYOUT (bv_user_details = [20, 20, 200, 166]);
+ LAYOUT (bv_sql_user_details = [20, 20, 200, 166]);
 

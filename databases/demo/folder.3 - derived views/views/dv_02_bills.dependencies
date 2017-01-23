@@ -19,6 +19,6 @@
 /databases/demo/folder.3 - derived views/folder.projections/views/p_sql_client_types.vql
 /databases/demo/folder.2 - base views/views/bv_sql_addresses.vql
 /databases/demo/folder.3 - derived views/folder.projections/views/p_sql_addresses.vql
-/databases/demo/folder.2 - base views/views/bv_user_details.vql
+/databases/demo/folder.2 - base views/views/bv_sql_user_details.vql
 /databases/demo/folder.3 - derived views/views/dv_01_user_details.vql
 /databases/demo/folder.3 - derived views/views/dv_01_client_information.vql
