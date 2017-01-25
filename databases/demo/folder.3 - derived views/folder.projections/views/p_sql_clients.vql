@@ -1,4 +1,5 @@
-﻿CREATE OR REPLACE VIEW p_sql_clients FOLDER = '/3 - derived views/projections' AS SELECT bv_sql_clients.client_id AS client_id, bv_sql_clients.name AS name, bv_sql_clients.surname AS surname, bv_sql_clients.client_type AS client_type FROM bv_sql_clients;
+﻿CREATE OR REPLACE VIEW p_sql_clients FOLDER = '/3 - derived views/projections'
+    PRIMARY KEY ( 'client_id' ) AS SELECT bv_sql_clients.client_id AS client_id, bv_sql_clients.name AS name, bv_sql_clients.surname AS surname, bv_sql_clients.client_type AS client_type FROM bv_sql_clients;
 
 ALTER VIEW p_sql_clients
  LAYOUT (bv_sql_clients = [20, 20, 200, 105]);

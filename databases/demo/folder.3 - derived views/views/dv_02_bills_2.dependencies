@@ -1,5 +1,4 @@
-﻿/databases/demo/folder.5 - final views/5 - final views.vql
-/databases/demo/folder.3 - derived views/3 - derived views.vql
+﻿/databases/demo/folder.3 - derived views/3 - derived views.vql
 /databases/demo/folder.3 - derived views/folder.projections/projections.vql
 /databases/demo/folder.2 - base views/2 - base views.vql
 /databases/demo/folder.1 - data sources/1 - data sources.vql
@@ -22,5 +21,3 @@
 /databases/demo/folder.3 - derived views/folder.projections/views/p_sql_client_types.vql
 /databases/demo/folder.2 - base views/views/bv_sql_user_details.vql
 /databases/demo/folder.3 - derived views/views/dv_01_user_details.vql
-/databases/demo/folder.3 - derived views/views/dv_02_bills_2.vql
-/databases/demo/folder.5 - final views/views/rekeningen_per_klant_en_product__all.vql
