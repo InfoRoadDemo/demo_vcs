@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW p_pdf_extr_use_cases AS SELECT filepath AS filepath, regex AS regex, pdf_name AS pdf_name, matches AS matches FROM sp_extract_pdf_using_regex('/home/denodo/PDF_Extr/Arcelor','(Use Case .*)');
+
+ALTER VIEW p_pdf_extr_use_cases
+ LAYOUT (sp_extract_pdf_using_regex = [20, 20, 244, 106]);
+

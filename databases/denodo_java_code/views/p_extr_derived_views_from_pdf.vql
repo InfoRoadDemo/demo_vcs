@@ -1,5 +1,0 @@
-﻿CREATE OR REPLACE VIEW p_extr_derived_views_from_pdf AS SELECT filepath AS filepath, regex AS regex, pdf_name AS pdf_name, matches AS matches FROM sp_extract_pdf_using_regex('/home/denodo/PDF_Extr/Arcelor','(- dv.*)');
-
-ALTER VIEW p_extr_derived_views_from_pdf
- LAYOUT (sp_extract_pdf_using_regex = [20, 20, 244, 106]);
-
