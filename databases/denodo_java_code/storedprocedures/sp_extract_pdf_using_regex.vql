@@ -1,0 +1,4 @@
+﻿CREATE OR REPLACE PROCEDURE sp_extract_pdf_using_regex
+    CLASSNAME='test.DenodExtractALL'
+    JARS 'Extr_pdf_using_regex';
+
