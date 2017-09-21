@@ -1,0 +1,107 @@
+﻿CREATE OR REPLACE WRAPPER CUSTOM mymongodb_copy
+    FOLDER = '/mongodb'
+    DATASOURCENAME=mymongodb
+    PARAMETERS (
+      'Host' = '192.168.92.130',
+      'Port' = 27017,
+      'Database' = 'dnd_bnp_poc2',
+      'Collection' = 'economic_sector'
+    )
+    OUTPUTSCHEMA (
+        _id = '_id' : 'java.lang.String' (OPT) SORTABLE,
+        economicsectororigin = 'EconomicSectorOrigin' : 'java.lang.String' (OPT) SORTABLE,
+        entityprovider = 'EntityProvider' : 'java.lang.String' (OPT) SORTABLE,
+        applsnd = 'ApplSnd' : 'java.lang.String' (OPT) SORTABLE,
+        extractionts = 'ExtractionTS' : 'java.lang.String' (OPT) SORTABLE,
+        seccd = 'SecCd' : 'java.lang.String' (OPT) SORTABLE,
+        seccdsrc = 'SecCdSrc' : 'java.lang.String' (OPT) SORTABLE,
+        seccdlabel = 'SecCdLabel' : 'java.lang.String' (OPT) SORTABLE,
+        issrcd = 'IssrCd' : 'java.lang.String' (OPT) SORTABLE,
+        issrsrc = 'IssrSrc' : 'java.lang.String' (OPT) SORTABLE,
+        issrlabel = 'IssrLabel' : 'java.lang.String' (OPT) SORTABLE,
+        agencycd = 'AgencyCd' : 'java.lang.String' (OPT) SORTABLE,
+        agencysrc = 'AgencySrc' : 'java.lang.String' (OPT) SORTABLE,
+        agencylabel = 'AgencyLabel' : 'java.lang.String' (OPT) SORTABLE,
+        sectortier1cd = 'SectorTier1Cd' : 'java.lang.String' (OPT) SORTABLE,
+        sectortier1label = 'SectorTier1Label' : 'java.lang.String' (OPT) SORTABLE,
+        sectortier2cd = 'SectorTier2Cd' : 'java.lang.String' (OPT) SORTABLE,
+        sectortier2label = 'SectorTier2Label' : 'java.lang.String' (OPT) SORTABLE,
+        sectortier3cd = 'SectorTier3Cd' : 'java.lang.String' (OPT) SORTABLE,
+        sectortier3label = 'SectorTier3Label' : 'java.lang.String' (OPT) SORTABLE,
+        sectortier4cd = 'SectorTier4Cd' : 'java.lang.String' (OPT) SORTABLE,
+        sectortier4label = 'SectorTier4Label' : 'java.lang.String' (OPT) SORTABLE,
+        sectortier5cd = 'SectorTier5Cd' : 'java.lang.String' (OPT) SORTABLE,
+        sectortier5label = 'SectorTier5Label' : 'java.lang.String' (OPT) SORTABLE,
+        sectortier6cd = 'SectorTier6Cd' : 'java.lang.String' (OPT) SORTABLE,
+        sectortier6label = 'SectorTier6Label' : 'java.lang.String' (OPT) SORTABLE,
+        issectorofficial = 'IsSectorOfficial' : 'java.lang.String' (OPT) SORTABLE
+    );
+
+CREATE OR REPLACE TABLE mymongodb_copy I18N us_pst (
+        _id:text, 
+        economicsectororigin:text, 
+        entityprovider:text, 
+        applsnd:text, 
+        extractionts:text, 
+        seccd:text, 
+        seccdsrc:text, 
+        seccdlabel:text, 
+        issrcd:text, 
+        issrsrc:text, 
+        issrlabel:text, 
+        agencycd:text, 
+        agencysrc:text, 
+        agencylabel:text, 
+        sectortier1cd:text, 
+        sectortier1label:text, 
+        sectortier2cd:text, 
+        sectortier2label:text, 
+        sectortier3cd:text, 
+        sectortier3label:text, 
+        sectortier4cd:text, 
+        sectortier4label:text, 
+        sectortier5cd:text, 
+        sectortier5label:text, 
+        sectortier6cd:text, 
+        sectortier6label:text, 
+        issectorofficial:text
+    )
+    FOLDER = '/mongodb'
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD mymongodb_copy(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD _id (any) OPT ANY
+             ADD economicsectororigin (any) OPT ANY
+             ADD entityprovider (any) OPT ANY
+             ADD applsnd (any) OPT ANY
+             ADD extractionts (any) OPT ANY
+             ADD seccd (any) OPT ANY
+             ADD seccdsrc (any) OPT ANY
+             ADD seccdlabel (any) OPT ANY
+             ADD issrcd (any) OPT ANY
+             ADD issrsrc (any) OPT ANY
+             ADD issrlabel (any) OPT ANY
+             ADD agencycd (any) OPT ANY
+             ADD agencysrc (any) OPT ANY
+             ADD agencylabel (any) OPT ANY
+             ADD sectortier1cd (any) OPT ANY
+             ADD sectortier1label (any) OPT ANY
+             ADD sectortier2cd (any) OPT ANY
+             ADD sectortier2label (any) OPT ANY
+             ADD sectortier3cd (any) OPT ANY
+             ADD sectortier3label (any) OPT ANY
+             ADD sectortier4cd (any) OPT ANY
+             ADD sectortier4label (any) OPT ANY
+             ADD sectortier5cd (any) OPT ANY
+             ADD sectortier5label (any) OPT ANY
+             ADD sectortier6cd (any) OPT ANY
+             ADD sectortier6label (any) OPT ANY
+             ADD issectorofficial (any) OPT ANY
+        )
+        OUTPUTLIST (_id, agencycd, agencylabel, agencysrc, applsnd, economicsectororigin, entityprovider, extractionts, issectorofficial, issrcd, issrlabel, issrsrc, seccd, seccdlabel, seccdsrc, sectortier1cd, sectortier1label, sectortier2cd, sectortier2label, sectortier3cd, sectortier3label, sectortier4cd, sectortier4label, sectortier5cd, sectortier5label, sectortier6cd, sectortier6label
+        )
+        WRAPPER (custom mymongodb_copy)
+    );
+

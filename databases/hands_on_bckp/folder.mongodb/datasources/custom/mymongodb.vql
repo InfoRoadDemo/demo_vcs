@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE DATASOURCE CUSTOM mymongodb
+    FOLDER = '/mongodb'
+    CLASSNAME='com.denodo.connect.mongodb.wrapper.MongoDBWrapper'
+    JARS 'denodo-mongodb-customwrapper-6.0';
+
