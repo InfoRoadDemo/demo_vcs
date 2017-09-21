@@ -1,5 +1,4 @@
 ﻿CREATE OR REPLACE WRAPPER CUSTOM mymongodb
-    FOLDER = '/test'
     DATASOURCENAME=mymongodb
     PARAMETERS (
       'Host' = '192.168.92.130',
@@ -266,7 +265,6 @@ CREATE OR REPLACE TABLE mymongodb I18N us_pst (
         required:mymongodb_required, 
         name:text
     )
-    FOLDER = '/test'
     CACHE OFF
     TIMETOLIVEINCACHE DEFAULT
     ADD SEARCHMETHOD mymongodb(
