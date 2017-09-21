@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE DATABASE hands_on_bckp '';
+
+ALTER DATABASE hands_on_bckp
+  CHARSET DEFAULT;
+

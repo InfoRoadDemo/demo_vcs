@@ -1,0 +1,426 @@
+﻿CREATE OR REPLACE WRAPPER CUSTOM mymongodb
+    DATASOURCENAME=mymongodb
+    PARAMETERS (
+      'Host' = '192.168.92.130',
+      'Port' = 27017,
+      'Database' = 'mongoDB_dnd',
+      'Collection' = 'dnd_demo'
+    )
+    OUTPUTSCHEMA (
+        _id = '_id' : 'java.lang.String' (OPT) SORTABLE,
+        glossary = 'glossary' : REGISTER OF (
+            title = 'title' : 'java.lang.String' (OPT) SORTABLE,
+            glossdiv = 'GlossDiv' : REGISTER OF (
+                title = 'title' : 'java.lang.String' (OPT) SORTABLE,
+                glosslist = 'GlossList' : REGISTER OF (
+                    glossentry = 'GlossEntry' : REGISTER OF (
+                        id = 'ID' : 'java.lang.String' (OPT) SORTABLE,
+                        sortas = 'SortAs' : 'java.lang.String' (OPT) SORTABLE,
+                        glossterm = 'GlossTerm' : 'java.lang.String' (OPT) SORTABLE,
+                        acronym = 'Acronym' : 'java.lang.String' (OPT) SORTABLE,
+                        abbrev = 'Abbrev' : 'java.lang.String' (OPT) SORTABLE,
+                        glossdef = 'GlossDef' : REGISTER OF (
+                            para = 'para' : 'java.lang.String' (OPT) SORTABLE,
+                            glossseealso = 'GlossSeeAlso' : ARRAY OF (
+                                glossseealso_record = 'GlossSeeAlso_record' : REGISTER OF (
+                                    glossseealso_item = 'GlossSeeAlso_ITEM' : 'java.lang.String' (OPT) SORTABLE
+                                )
+                            )
+                        ),
+                        glosssee = 'GlossSee' : 'java.lang.String' (OPT) SORTABLE
+                    )
+                )
+            )
+        ),
+        widget = 'widget' : REGISTER OF (
+            debug = 'debug' : 'java.lang.String' (OPT) SORTABLE,
+            window = 'window' : REGISTER OF (
+                title = 'title' : 'java.lang.String' (OPT) SORTABLE,
+                name = 'name' : 'java.lang.String' (OPT) SORTABLE,
+                width = 'width' : 'java.lang.String' (OPT) SORTABLE,
+                height = 'height' : 'java.lang.String' (OPT) SORTABLE
+            ),
+            image = 'image' : REGISTER OF (
+                src = 'src' : 'java.lang.String' (OPT) SORTABLE,
+                name = 'name' : 'java.lang.String' (OPT) SORTABLE,
+                hoffset = 'hOffset' : 'java.lang.String' (OPT) SORTABLE,
+                voffset = 'vOffset' : 'java.lang.String' (OPT) SORTABLE,
+                alignment = 'alignment' : 'java.lang.String' (OPT) SORTABLE
+            ),
+            text = 'text' : REGISTER OF (
+                data = 'data' : 'java.lang.String' (OPT) SORTABLE,
+                size = 'size' : 'java.lang.String' (OPT) SORTABLE,
+                style = 'style' : 'java.lang.String' (OPT) SORTABLE,
+                name = 'name' : 'java.lang.String' (OPT) SORTABLE,
+                hoffset = 'hOffset' : 'java.lang.String' (OPT) SORTABLE,
+                voffset = 'vOffset' : 'java.lang.String' (OPT) SORTABLE,
+                alignment = 'alignment' : 'java.lang.String' (OPT) SORTABLE,
+                onmouseup = 'onMouseUp' : 'java.lang.String' (OPT) SORTABLE
+            )
+        ),
+        webapp_0 = 'web-app' : REGISTER OF (
+            servlet = 'servlet' : ARRAY OF (
+                servlet_record = 'servlet_record' : REGISTER OF (
+                    servlet_item = 'servlet_ITEM' : REGISTER OF (
+                        servletname_0 = 'servlet-name' : 'java.lang.String' (OPT) SORTABLE,
+                        servletclass_0 = 'servlet-class' : 'java.lang.String' (OPT) SORTABLE,
+                        initparam_0 = 'init-param' : REGISTER OF (
+                            templatepath = 'templatePath' : 'java.lang.String' (OPT) SORTABLE,
+                            log = 'log' : 'java.lang.String' (OPT) SORTABLE,
+                            loglocation = 'logLocation' : 'java.lang.String' (OPT) SORTABLE,
+                            logmaxsize = 'logMaxSize' : 'java.lang.String' (OPT) SORTABLE,
+                            datalog = 'dataLog' : 'java.lang.String' (OPT) SORTABLE,
+                            dataloglocation = 'dataLogLocation' : 'java.lang.String' (OPT) SORTABLE,
+                            datalogmaxsize = 'dataLogMaxSize' : 'java.lang.String' (OPT) SORTABLE,
+                            removepagecache = 'removePageCache' : 'java.lang.String' (OPT) SORTABLE,
+                            removetemplatecache = 'removeTemplateCache' : 'java.lang.String' (OPT) SORTABLE,
+                            filetransferfolder = 'fileTransferFolder' : 'java.lang.String' (OPT) SORTABLE,
+                            lookincontext = 'lookInContext' : 'java.lang.String' (OPT) SORTABLE,
+                            admingroupid = 'adminGroupID' : 'java.lang.String' (OPT) SORTABLE,
+                            betaserver = 'betaServer' : 'java.lang.String' (OPT) SORTABLE,
+                            mailhost = 'mailHost' : 'java.lang.String' (OPT) SORTABLE,
+                            mailhostoverride = 'mailHostOverride' : 'java.lang.String' (OPT) SORTABLE,
+                            configglossaryinstallationat_0 = 'configGlossary:installationAt' : 'java.lang.String' (OPT) SORTABLE,
+                            configglossaryadminemail_0 = 'configGlossary:adminEmail' : 'java.lang.String' (OPT) SORTABLE,
+                            configglossarypoweredby_0 = 'configGlossary:poweredBy' : 'java.lang.String' (OPT) SORTABLE,
+                            configglossarypoweredbyicon_0 = 'configGlossary:poweredByIcon' : 'java.lang.String' (OPT) SORTABLE,
+                            configglossarystaticpath_0 = 'configGlossary:staticPath' : 'java.lang.String' (OPT) SORTABLE,
+                            templateprocessorclass = 'templateProcessorClass' : 'java.lang.String' (OPT) SORTABLE,
+                            templateloaderclass = 'templateLoaderClass' : 'java.lang.String' (OPT) SORTABLE,
+                            templateoverridepath = 'templateOverridePath' : 'java.lang.String' (OPT) SORTABLE,
+                            defaultlisttemplate = 'defaultListTemplate' : 'java.lang.String' (OPT) SORTABLE,
+                            defaultfiletemplate = 'defaultFileTemplate' : 'java.lang.String' (OPT) SORTABLE,
+                            usejsp = 'useJSP' : 'java.lang.String' (OPT) SORTABLE,
+                            jsplisttemplate = 'jspListTemplate' : 'java.lang.String' (OPT) SORTABLE,
+                            jspfiletemplate = 'jspFileTemplate' : 'java.lang.String' (OPT) SORTABLE,
+                            cachepackagetagstrack = 'cachePackageTagsTrack' : 'java.lang.String' (OPT) SORTABLE,
+                            cachepackagetagsstore = 'cachePackageTagsStore' : 'java.lang.String' (OPT) SORTABLE,
+                            cachepackagetagsrefresh = 'cachePackageTagsRefresh' : 'java.lang.String' (OPT) SORTABLE,
+                            cachetemplatestrack = 'cacheTemplatesTrack' : 'java.lang.String' (OPT) SORTABLE,
+                            cachetemplatesstore = 'cacheTemplatesStore' : 'java.lang.String' (OPT) SORTABLE,
+                            cachetemplatesrefresh = 'cacheTemplatesRefresh' : 'java.lang.String' (OPT) SORTABLE,
+                            cachepagestrack = 'cachePagesTrack' : 'java.lang.String' (OPT) SORTABLE,
+                            cachepagesstore = 'cachePagesStore' : 'java.lang.String' (OPT) SORTABLE,
+                            cachepagesrefresh = 'cachePagesRefresh' : 'java.lang.String' (OPT) SORTABLE,
+                            cachepagesdirtyread = 'cachePagesDirtyRead' : 'java.lang.String' (OPT) SORTABLE,
+                            searchenginelisttemplate = 'searchEngineListTemplate' : 'java.lang.String' (OPT) SORTABLE,
+                            searchenginefiletemplate = 'searchEngineFileTemplate' : 'java.lang.String' (OPT) SORTABLE,
+                            searchenginerobotsdb = 'searchEngineRobotsDb' : 'java.lang.String' (OPT) SORTABLE,
+                            usedatastore = 'useDataStore' : 'java.lang.String' (OPT) SORTABLE,
+                            datastoreclass = 'dataStoreClass' : 'java.lang.String' (OPT) SORTABLE,
+                            redirectionclass = 'redirectionClass' : 'java.lang.String' (OPT) SORTABLE,
+                            datastorename = 'dataStoreName' : 'java.lang.String' (OPT) SORTABLE,
+                            datastoredriver = 'dataStoreDriver' : 'java.lang.String' (OPT) SORTABLE,
+                            datastoreurl = 'dataStoreUrl' : 'java.lang.String' (OPT) SORTABLE,
+                            datastoreuser = 'dataStoreUser' : 'java.lang.String' (OPT) SORTABLE,
+                            datastorepassword = 'dataStorePassword' : 'java.lang.String' (OPT) SORTABLE,
+                            datastoretestquery = 'dataStoreTestQuery' : 'java.lang.String' (OPT) SORTABLE,
+                            datastorelogfile = 'dataStoreLogFile' : 'java.lang.String' (OPT) SORTABLE,
+                            datastoreinitconns = 'dataStoreInitConns' : 'java.lang.String' (OPT) SORTABLE,
+                            datastoremaxconns = 'dataStoreMaxConns' : 'java.lang.String' (OPT) SORTABLE,
+                            datastoreconnusagelimit = 'dataStoreConnUsageLimit' : 'java.lang.String' (OPT) SORTABLE,
+                            datastoreloglevel = 'dataStoreLogLevel' : 'java.lang.String' (OPT) SORTABLE,
+                            maxurllength = 'maxUrlLength' : 'java.lang.String' (OPT) SORTABLE
+                        )
+                    )
+                )
+            ),
+            servletmapping_0 = 'servlet-mapping' : REGISTER OF (
+                cofaxcds = 'cofaxCDS' : 'java.lang.String' (OPT) SORTABLE,
+                cofaxemail = 'cofaxEmail' : 'java.lang.String' (OPT) SORTABLE,
+                cofaxadmin = 'cofaxAdmin' : 'java.lang.String' (OPT) SORTABLE,
+                fileservlet = 'fileServlet' : 'java.lang.String' (OPT) SORTABLE,
+                cofaxtools = 'cofaxTools' : 'java.lang.String' (OPT) SORTABLE
+            ),
+            taglib = 'taglib' : REGISTER OF (
+                tagliburi_0 = 'taglib-uri' : 'java.lang.String' (OPT) SORTABLE,
+                tagliblocation_0 = 'taglib-location' : 'java.lang.String' (OPT) SORTABLE
+            )
+        ),
+        menu = 'menu' : REGISTER OF (
+            header = 'header' : 'java.lang.String' (OPT) SORTABLE,
+            items = 'items' : ARRAY OF (
+                items_record = 'items_record' : REGISTER OF (
+                    items_item = 'items_ITEM' : 'java.lang.Object' (OPT) SORTABLE
+                )
+            )
+        ),
+        title = 'title' : 'java.lang.String' (OPT) SORTABLE,
+        type = 'type' : 'java.lang.String' (OPT) SORTABLE,
+        properties = 'properties' : REGISTER OF (
+            id = 'id' : REGISTER OF (
+                type = 'type' : 'java.lang.String' (OPT) SORTABLE,
+                description = 'description' : 'java.lang.String' (OPT) SORTABLE,
+                required = 'required' : 'java.lang.String' (OPT) SORTABLE
+            ),
+            name = 'name' : REGISTER OF (
+                description = 'description' : 'java.lang.String' (OPT) SORTABLE,
+                type = 'type' : 'java.lang.String' (OPT) SORTABLE,
+                required = 'required' : 'java.lang.String' (OPT) SORTABLE
+            ),
+            price = 'price' : REGISTER OF (
+                type = 'type' : 'java.lang.String' (OPT) SORTABLE,
+                minimum = 'minimum' : 'java.lang.String' (OPT) SORTABLE,
+                required = 'required' : 'java.lang.String' (OPT) SORTABLE
+            ),
+            tags = 'tags' : REGISTER OF (
+                type = 'type' : 'java.lang.String' (OPT) SORTABLE,
+                items = 'items' : REGISTER OF (
+                    type = 'type' : 'java.lang.String' (OPT) SORTABLE
+                )
+            ),
+            firstname = 'firstName' : REGISTER OF (
+                type = 'type' : 'java.lang.String' (OPT) SORTABLE
+            ),
+            lastname = 'lastName' : REGISTER OF (
+                type = 'type' : 'java.lang.String' (OPT) SORTABLE
+            ),
+            age = 'age' : REGISTER OF (
+                description = 'description' : 'java.lang.String' (OPT) SORTABLE,
+                type = 'type' : 'java.lang.String' (OPT) SORTABLE,
+                minimum = 'minimum' : 'java.lang.String' (OPT) SORTABLE
+            )
+        ),
+        required = 'required' : ARRAY OF (
+            required_record = 'required_record' : REGISTER OF (
+                required_item = 'required_ITEM' : 'java.lang.String' (OPT) SORTABLE
+            )
+        ),
+        name = 'name' : 'java.lang.String' (OPT) SORTABLE
+    );
+
+CREATE OR REPLACE TYPE mymongodb_glossary_glossdiv_glosslist_glossentry_glossdef_glossseealso_glossseealso_record AS REGISTER OF (glossseealso_item:text);
+
+CREATE OR REPLACE TYPE mymongodb_glossary_glossdiv_glosslist_glossentry_glossdef_glossseealso AS ARRAY OF mymongodb_glossary_glossdiv_glosslist_glossentry_glossdef_glossseealso_glossseealso_record;
+
+CREATE OR REPLACE TYPE mymongodb_glossary_glossdiv_glosslist_glossentry_glossdef AS REGISTER OF (para:text, glossseealso:mymongodb_glossary_glossdiv_glosslist_glossentry_glossdef_glossseealso);
+
+CREATE OR REPLACE TYPE mymongodb_glossary_glossdiv_glosslist_glossentry AS REGISTER OF (id:text, sortas:text, glossterm:text, acronym:text, abbrev:text, glossdef:mymongodb_glossary_glossdiv_glosslist_glossentry_glossdef, glosssee:text);
+
+CREATE OR REPLACE TYPE mymongodb_glossary_glossdiv_glosslist AS REGISTER OF (glossentry:mymongodb_glossary_glossdiv_glosslist_glossentry);
+
+CREATE OR REPLACE TYPE mymongodb_glossary_glossdiv AS REGISTER OF (title:text, glosslist:mymongodb_glossary_glossdiv_glosslist);
+
+CREATE OR REPLACE TYPE mymongodb_glossary AS REGISTER OF (title:text, glossdiv:mymongodb_glossary_glossdiv);
+
+CREATE OR REPLACE TYPE mymongodb_widget_window AS REGISTER OF (title:text, name:text, width:text, height:text);
+
+CREATE OR REPLACE TYPE mymongodb_widget_image AS REGISTER OF (src:text, name:text, hoffset:text, voffset:text, alignment:text);
+
+CREATE OR REPLACE TYPE mymongodb_widget_text AS REGISTER OF (data:text, size:text, style:text, name:text, hoffset:text, voffset:text, alignment:text, onmouseup:text);
+
+CREATE OR REPLACE TYPE mymongodb_widget AS REGISTER OF (debug:text, window:mymongodb_widget_window, image:mymongodb_widget_image, text:mymongodb_widget_text);
+
+CREATE OR REPLACE TYPE mymongodb_webapp_0_servlet_servlet_record_servlet_item_initparam_0 AS REGISTER OF (templatepath:text, log:text, loglocation:text, logmaxsize:text, datalog:text, dataloglocation:text, datalogmaxsize:text, removepagecache:text, removetemplatecache:text, filetransferfolder:text, lookincontext:text, admingroupid:text, betaserver:text, mailhost:text, mailhostoverride:text, configglossaryinstallationat_0:text, configglossaryadminemail_0:text, configglossarypoweredby_0:text, configglossarypoweredbyicon_0:text, configglossarystaticpath_0:text, templateprocessorclass:text, templateloaderclass:text, templateoverridepath:text, defaultlisttemplate:text, defaultfiletemplate:text, usejsp:text, jsplisttemplate:text, jspfiletemplate:text, cachepackagetagstrack:text, cachepackagetagsstore:text, cachepackagetagsrefresh:text, cachetemplatestrack:text, cachetemplatesstore:text, cachetemplatesrefresh:text, cachepagestrack:text, cachepagesstore:text, cachepagesrefresh:text, cachepagesdirtyread:text, searchenginelisttemplate:text, searchenginefiletemplate:text, searchenginerobotsdb:text, usedatastore:text, datastoreclass:text, redirectionclass:text, datastorename:text, datastoredriver:text, datastoreurl:text, datastoreuser:text, datastorepassword:text, datastoretestquery:text, datastorelogfile:text, datastoreinitconns:text, datastoremaxconns:text, datastoreconnusagelimit:text, datastoreloglevel:text, maxurllength:text);
+
+CREATE OR REPLACE TYPE mymongodb_webapp_0_servlet_servlet_record_servlet_item AS REGISTER OF (servletname_0:text, servletclass_0:text, initparam_0:mymongodb_webapp_0_servlet_servlet_record_servlet_item_initparam_0);
+
+CREATE OR REPLACE TYPE mymongodb_webapp_0_servlet_servlet_record AS REGISTER OF (servlet_item:mymongodb_webapp_0_servlet_servlet_record_servlet_item);
+
+CREATE OR REPLACE TYPE mymongodb_webapp_0_servlet AS ARRAY OF mymongodb_webapp_0_servlet_servlet_record;
+
+CREATE OR REPLACE TYPE mymongodb_webapp_0_servletmapping_0 AS REGISTER OF (cofaxcds:text, cofaxemail:text, cofaxadmin:text, fileservlet:text, cofaxtools:text);
+
+CREATE OR REPLACE TYPE mymongodb_webapp_0_taglib AS REGISTER OF (tagliburi_0:text, tagliblocation_0:text);
+
+CREATE OR REPLACE TYPE mymongodb_webapp_0 AS REGISTER OF (servlet:mymongodb_webapp_0_servlet, servletmapping_0:mymongodb_webapp_0_servletmapping_0, taglib:mymongodb_webapp_0_taglib);
+
+CREATE OR REPLACE TYPE mymongodb_menu_items_items_record AS REGISTER OF (items_item:text);
+
+CREATE OR REPLACE TYPE mymongodb_menu_items AS ARRAY OF mymongodb_menu_items_items_record;
+
+CREATE OR REPLACE TYPE mymongodb_menu AS REGISTER OF (header:text, items:mymongodb_menu_items);
+
+CREATE OR REPLACE TYPE mymongodb_properties_id AS REGISTER OF (type:text, description:text, required:text);
+
+CREATE OR REPLACE TYPE mymongodb_properties_name AS REGISTER OF (description:text, type:text, required:text);
+
+CREATE OR REPLACE TYPE mymongodb_properties_price AS REGISTER OF (type:text, minimum:text, required:text);
+
+CREATE OR REPLACE TYPE mymongodb_properties_tags_items AS REGISTER OF (type:text);
+
+CREATE OR REPLACE TYPE mymongodb_properties_tags AS REGISTER OF (type:text, items:mymongodb_properties_tags_items);
+
+CREATE OR REPLACE TYPE mymongodb_properties_firstname AS REGISTER OF (type:text);
+
+CREATE OR REPLACE TYPE mymongodb_properties_lastname AS REGISTER OF (type:text);
+
+CREATE OR REPLACE TYPE mymongodb_properties_age AS REGISTER OF (description:text, type:text, minimum:text);
+
+CREATE OR REPLACE TYPE mymongodb_properties AS REGISTER OF (id:mymongodb_properties_id, name:mymongodb_properties_name, price:mymongodb_properties_price, tags:mymongodb_properties_tags, firstname:mymongodb_properties_firstname, lastname:mymongodb_properties_lastname, age:mymongodb_properties_age);
+
+CREATE OR REPLACE TYPE mymongodb_required_required_record AS REGISTER OF (required_item:text);
+
+CREATE OR REPLACE TYPE mymongodb_required AS ARRAY OF mymongodb_required_required_record;
+
+CREATE OR REPLACE TABLE mymongodb I18N us_pst (
+        _id:text, 
+        glossary:mymongodb_glossary, 
+        widget:mymongodb_widget, 
+        webapp_0:mymongodb_webapp_0, 
+        menu:mymongodb_menu, 
+        title:text, 
+        type:text, 
+        properties:mymongodb_properties, 
+        required:mymongodb_required, 
+        name:text
+    )
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD mymongodb(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD _id (any) OPT ANY
+             ADD glossary NOS ZERO ()
+             ADD glossary.title (any) OPT ANY
+             ADD glossary.glossdiv NOS ZERO ()
+             ADD glossary.glossdiv.title (any) OPT ANY
+             ADD glossary.glossdiv.glosslist NOS ZERO ()
+             ADD glossary.glossdiv.glosslist.glossentry NOS ZERO ()
+             ADD glossary.glossdiv.glosslist.glossentry.id (any) OPT ANY
+             ADD glossary.glossdiv.glosslist.glossentry.sortas (any) OPT ANY
+             ADD glossary.glossdiv.glosslist.glossentry.glossterm (any) OPT ANY
+             ADD glossary.glossdiv.glosslist.glossentry.acronym (any) OPT ANY
+             ADD glossary.glossdiv.glosslist.glossentry.abbrev (any) OPT ANY
+             ADD glossary.glossdiv.glosslist.glossentry.glossdef NOS ZERO ()
+             ADD glossary.glossdiv.glosslist.glossentry.glossdef.para (any) OPT ANY
+             ADD glossary.glossdiv.glosslist.glossentry.glossdef.glossseealso NOS ZERO ()
+             ADD glossary.glossdiv.glosslist.glossentry.glossdef.glossseealso NOS ZERO ()
+             ADD glossary.glossdiv.glosslist.glossentry.glossdef.glossseealso.glossseealso_item (any) OPT ANY
+             ADD glossary.glossdiv.glosslist.glossentry.glosssee (any) OPT ANY
+             ADD widget NOS ZERO ()
+             ADD widget.debug (any) OPT ANY
+             ADD widget.window NOS ZERO ()
+             ADD widget.window.title (any) OPT ANY
+             ADD widget.window.name (any) OPT ANY
+             ADD widget.window.width (any) OPT ANY
+             ADD widget.window.height (any) OPT ANY
+             ADD widget.image NOS ZERO ()
+             ADD widget.image.src (any) OPT ANY
+             ADD widget.image.name (any) OPT ANY
+             ADD widget.image.hoffset (any) OPT ANY
+             ADD widget.image.voffset (any) OPT ANY
+             ADD widget.image.alignment (any) OPT ANY
+             ADD widget.text NOS ZERO ()
+             ADD widget.text.data (any) OPT ANY
+             ADD widget.text.size (any) OPT ANY
+             ADD widget.text.style (any) OPT ANY
+             ADD widget.text.name (any) OPT ANY
+             ADD widget.text.hoffset (any) OPT ANY
+             ADD widget.text.voffset (any) OPT ANY
+             ADD widget.text.alignment (any) OPT ANY
+             ADD widget.text.onmouseup (any) OPT ANY
+             ADD webapp_0 NOS ZERO ()
+             ADD webapp_0.servlet NOS ZERO ()
+             ADD webapp_0.servlet NOS ZERO ()
+             ADD webapp_0.servlet.servlet_item NOS ZERO ()
+             ADD webapp_0.servlet.servlet_item.servletname_0 (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.servletclass_0 (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0 NOS ZERO ()
+             ADD webapp_0.servlet.servlet_item.initparam_0.templatepath (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.log (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.loglocation (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.logmaxsize (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.datalog (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.dataloglocation (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.datalogmaxsize (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.removepagecache (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.removetemplatecache (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.filetransferfolder (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.lookincontext (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.admingroupid (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.betaserver (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.mailhost (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.mailhostoverride (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.configglossaryinstallationat_0 (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.configglossaryadminemail_0 (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.configglossarypoweredby_0 (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.configglossarypoweredbyicon_0 (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.configglossarystaticpath_0 (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.templateprocessorclass (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.templateloaderclass (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.templateoverridepath (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.defaultlisttemplate (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.defaultfiletemplate (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.usejsp (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.jsplisttemplate (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.jspfiletemplate (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.cachepackagetagstrack (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.cachepackagetagsstore (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.cachepackagetagsrefresh (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.cachetemplatestrack (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.cachetemplatesstore (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.cachetemplatesrefresh (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.cachepagestrack (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.cachepagesstore (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.cachepagesrefresh (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.cachepagesdirtyread (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.searchenginelisttemplate (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.searchenginefiletemplate (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.searchenginerobotsdb (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.usedatastore (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.datastoreclass (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.redirectionclass (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.datastorename (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.datastoredriver (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.datastoreurl (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.datastoreuser (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.datastorepassword (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.datastoretestquery (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.datastorelogfile (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.datastoreinitconns (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.datastoremaxconns (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.datastoreconnusagelimit (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.datastoreloglevel (any) OPT ANY
+             ADD webapp_0.servlet.servlet_item.initparam_0.maxurllength (any) OPT ANY
+             ADD webapp_0.servletmapping_0 NOS ZERO ()
+             ADD webapp_0.servletmapping_0.cofaxcds (any) OPT ANY
+             ADD webapp_0.servletmapping_0.cofaxemail (any) OPT ANY
+             ADD webapp_0.servletmapping_0.cofaxadmin (any) OPT ANY
+             ADD webapp_0.servletmapping_0.fileservlet (any) OPT ANY
+             ADD webapp_0.servletmapping_0.cofaxtools (any) OPT ANY
+             ADD webapp_0.taglib NOS ZERO ()
+             ADD webapp_0.taglib.tagliburi_0 (any) OPT ANY
+             ADD webapp_0.taglib.tagliblocation_0 (any) OPT ANY
+             ADD menu NOS ZERO ()
+             ADD menu.header (any) OPT ANY
+             ADD menu.items NOS ZERO ()
+             ADD menu.items NOS ZERO ()
+             ADD menu.items.items_item (any) OPT ANY
+             ADD title (any) OPT ANY
+             ADD type (any) OPT ANY
+             ADD properties NOS ZERO ()
+             ADD properties.id NOS ZERO ()
+             ADD properties.id.type (any) OPT ANY
+             ADD properties.id.description (any) OPT ANY
+             ADD properties.id.required (any) OPT ANY
+             ADD properties.name NOS ZERO ()
+             ADD properties.name.description (any) OPT ANY
+             ADD properties.name.type (any) OPT ANY
+             ADD properties.name.required (any) OPT ANY
+             ADD properties.price NOS ZERO ()
+             ADD properties.price.type (any) OPT ANY
+             ADD properties.price.minimum (any) OPT ANY
+             ADD properties.price.required (any) OPT ANY
+             ADD properties.tags NOS ZERO ()
+             ADD properties.tags.type (any) OPT ANY
+             ADD properties.tags.items NOS ZERO ()
+             ADD properties.tags.items.type (any) OPT ANY
+             ADD properties.firstname NOS ZERO ()
+             ADD properties.firstname.type (any) OPT ANY
+             ADD properties.lastname NOS ZERO ()
+             ADD properties.lastname.type (any) OPT ANY
+             ADD properties.age NOS ZERO ()
+             ADD properties.age.description (any) OPT ANY
+             ADD properties.age.type (any) OPT ANY
+             ADD properties.age.minimum (any) OPT ANY
+             ADD required NOS ZERO ()
+             ADD required NOS ZERO ()
+             ADD required.required_item (any) OPT ANY
+             ADD name (any) OPT ANY
+        )
+        OUTPUTLIST (_id, glossary, menu, name, properties, required, title, type, webapp_0, widget
+        )
+        WRAPPER (custom mymongodb)
+    );
+

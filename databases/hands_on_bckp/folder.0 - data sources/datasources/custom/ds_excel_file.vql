@@ -1,0 +1,31 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE DATASOURCE CUSTOM ds_excel_file
+    FOLDER = '/0 - data sources'
+    CLASSNAME='com.denodo.vdb.contrib.wrapper.xls.ExcelWrapper';
+
+CREATE OR REPLACE WRAPPER CUSTOM ds_excel_file
+    FOLDER = '/1 - base views'
+    DATASOURCENAME=ds_excel_file
+    PARAMETERS (
+      'Type of file' = 'Excel 2007 or later (*.xlsx)',
+      'File location' = ROUTE LOCAL 'LocalConnection' '${databases.hands_on_bckp.folder.1 - base views.views.custom.ds_excel_file.File location.ROUTE.LOCAL.PATH}',
+      'Extract data from all sheets' = true,
+      'Extract sheet name as a new column' = false,
+      'Has headers' = true,
+      'Stream tuples' = true
+    )
+    OUTPUTSCHEMA (
+        ssn = 'ssn' : 'java.lang.String' (OPT) SORTABLE,
+        end_date = 'end_date' : 'java.lang.String' (OPT) SORTABLE,
+        phone = 'phone' : 'java.lang.String' (OPT) SORTABLE,
+        due_date = 'due_date' : 'java.lang.String' (OPT) SORTABLE,
+        balance = 'balance' : 'java.lang.Float' (OPT) SORTABLE,
+        period_id = 'period_id' : 'java.lang.String' (OPT) SORTABLE,
+        start_date = 'start_date' : 'java.lang.String' (OPT) SORTABLE,
+        billing_id = 'billing_id' : 'java.lang.String' (OPT) SORTABLE,
+        cust_id = 'cust_id' : 'java.lang.String' (OPT) SORTABLE,
+        pack_id = 'pack_id' : 'java.lang.String' (OPT) SORTABLE,
+        amount_due = 'amount_due' : 'java.lang.Float' (OPT) SORTABLE,
+        tax_id = 'tax_id' : 'java.lang.String' (OPT) SORTABLE
+    );
+

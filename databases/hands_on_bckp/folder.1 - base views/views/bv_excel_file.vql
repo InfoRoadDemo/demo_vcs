@@ -1,0 +1,38 @@
+﻿CREATE OR REPLACE TABLE bv_excel_file I18N us_pst (
+        ssn:text, 
+        end_date:text, 
+        phone:text, 
+        due_date:text, 
+        balance:float, 
+        period_id:text, 
+        start_date:text, 
+        billing_id:text, 
+        cust_id:text, 
+        pack_id:text, 
+        amount_due:float, 
+        tax_id:text
+    )
+    FOLDER = '/1 - base views'
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD ds_excel_file(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD ssn (any) OPT ANY
+             ADD end_date (any) OPT ANY
+             ADD phone (any) OPT ANY
+             ADD due_date (any) OPT ANY
+             ADD balance (any) OPT ANY
+             ADD period_id (any) OPT ANY
+             ADD start_date (any) OPT ANY
+             ADD billing_id (any) OPT ANY
+             ADD cust_id (any) OPT ANY
+             ADD pack_id (any) OPT ANY
+             ADD amount_due (any) OPT ANY
+             ADD tax_id (any) OPT ANY
+        )
+        OUTPUTLIST (amount_due, balance, billing_id, cust_id, due_date, end_date, pack_id, period_id, phone, ssn, start_date, tax_id
+        )
+        WRAPPER (custom ds_excel_file)
+    );
+
