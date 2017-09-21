@@ -20,6 +20,7 @@ CREATE OR REPLACE TABLE bv_sql_clients I18N us_pst (
         client_type:text (sourcetyperadix = '10', sourcetypesize = '2', sourcetypeid = '12')
     )
     FOLDER = '/2 - base views'
+    DESCRIPTION = 'Klantenbestand'
     CONSTRAINT 'PRIMARY' PRIMARY KEY ( 'client_id' )
     CACHE OFF
     TIMETOLIVEINCACHE DEFAULT
