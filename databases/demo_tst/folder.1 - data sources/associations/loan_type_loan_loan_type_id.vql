@@ -1,0 +1,6 @@
+﻿CREATE OR REPLACE ASSOCIATION "loan_type_loan_Loan_Type_Id" REFERENTIAL CONSTRAINT 
+FOLDER = '/1 - data sources'
+    ENDPOINT "loan_Loan_Type_Id" loan_type PRINCIPAL (1)
+    ENDPOINT "loan_type_Loan_Type_Id" loan (1)
+    ADD MAPPING loan_type.loan_type_id=loan.loan_type_id;
+

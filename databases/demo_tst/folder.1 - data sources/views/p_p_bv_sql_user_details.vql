@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW p_p_bv_sql_user_details FOLDER = '/1 - data sources' AS SELECT p_bv_sql_user_details.test AS test FROM p_bv_sql_user_details;
+
+ALTER VIEW p_p_bv_sql_user_details
+ LAYOUT (p_bv_sql_user_details = [20, 20, 200, 46]);
+

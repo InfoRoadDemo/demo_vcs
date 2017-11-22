@@ -1,0 +1,15 @@
+﻿/databases/demo_tst/folder.4 - associations/4 - associations.vql
+/databases/demo_tst/folder.3 - derived views/3 - derived views.vql
+/databases/demo_tst/folder.3 - derived views/folder.projections/projections.vql
+/databases/demo_tst/folder.2 - base views/2 - base views.vql
+/databases/demo_tst/folder.1 - data sources/1 - data sources.vql
+/databases/demo_tst/folder.1 - data sources/datasources/ws/ds_soap_webservice.vql
+/databases/demo_tst/folder.2 - base views/views/bv_ws_bills.vql
+/databases/demo_tst/folder.3 - derived views/folder.projections/views/f_ws_bills.vql
+/databases/demo_tst/folder.1 - data sources/datasources/custom/products_clothing.vql
+/databases/demo_tst/folder.2 - base views/views/bv_xlsx_products_clothing.vql
+/databases/demo_tst/folder.3 - derived views/folder.projections/views/p_xlsx_products_clothing.vql
+/databases/demo_tst/folder.1 - data sources/datasources/custom/products_electronics.vql
+/databases/demo_tst/folder.2 - base views/views/bv_xlsx_products_electronics.vql
+/databases/demo_tst/folder.3 - derived views/folder.projections/views/p_xlsx_products_electronics.vql
+/databases/demo_tst/folder.3 - derived views/views/dv_01_products.vql

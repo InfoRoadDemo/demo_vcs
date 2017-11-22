@@ -1,0 +1,9 @@
+﻿CREATE OR REPLACE ASSOCIATION a_client_information__ws_bills REFERENTIAL CONSTRAINT 
+FOLDER = '/4 - associations'
+    ENDPOINT bills dv_01_client_information PRINCIPAL (1)
+    ENDPOINT belongs_to_client_information f_ws_bills (0,*)
+    ADD MAPPING dv_01_client_information.client_id=f_ws_bills.customer_id;
+
+ALTER ASSOCIATION a_client_information__ws_bills
+ LAYOUT (dv_01_client_information = [20, 20, 200, 206], f_ws_bills = [250, 20, 200, 225]);
+

@@ -1,0 +1,6 @@
+﻿CREATE OR REPLACE ASSOCIATION credit_card_type_credit_card REFERENTIAL CONSTRAINT 
+FOLDER = '/1 - data sources'
+    ENDPOINT credit_card credit_card_type PRINCIPAL (1)
+    ENDPOINT "credit_card_type_Credit_Card_Type_Id" credit_card (1)
+    ADD MAPPING credit_card_type.credit_card_type_id=credit_card.credit_card_type_id;
+

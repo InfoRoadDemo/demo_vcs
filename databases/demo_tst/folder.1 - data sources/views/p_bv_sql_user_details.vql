@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE VIEW p_bv_sql_user_details FOLDER = '/1 - data sources' AS SELECT min(user_id) AS test FROM bv_sql_user_details;
+
+ALTER VIEW p_bv_sql_user_details
+ LAYOUT (bv_sql_user_details = [20, 20, 200, 105]);
+

@@ -1,0 +1,2 @@
+﻿CREATE OR REPLACE VIEW metadata_views FOLDER = '/7 - metadata' AS SELECT resultname AS name, resulttype AS type, resultsubtype AS subtype, resultusercreator AS tusercreator, resultlastusermodifier AS tlastusermodifier, resultcreatedate AS tcreatedate, resultlastmodificationdate AS lastmodificationdate, resultdescription AS description FROM catalog_elements() WHERE resulttype = 'view';
+

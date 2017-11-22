@@ -1,0 +1,9 @@
+﻿CREATE OR REPLACE ASSOCIATION a_klanten_adressen REFERENTIAL CONSTRAINT 
+FOLDER = '/6 - web services/model_bills/associations'
+    ENDPOINT adres klanten (0,*)
+    ENDPOINT klanten adressen PRINCIPAL (1)
+    ADD MAPPING klanten.klant_id=adressen.klant_id;
+
+ALTER ASSOCIATION a_klanten_adressen
+ LAYOUT (klanten = [20, 20, 200, 106], adressen = [250, 20, 200, 146]);
+

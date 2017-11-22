@@ -1,0 +1,2 @@
+﻿CREATE OR REPLACE VIEW metadata_dependies FOLDER = '/7 - metadata' AS SELECT view_database_name AS view_database_name, view_name AS view_name, view_identifier AS view_identifier, view_type AS view_type, private_view AS private_view, dependency_database_name AS dependency_database_name, dependency_name AS dependency_name, dependency_identifier AS dependency_identifier, dependency_type AS dependency_type, depth AS depth FROM view_dependencies('demo',NULL);
+

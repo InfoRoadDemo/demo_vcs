@@ -1,0 +1,2 @@
+﻿CREATE OR REPLACE VIEW test_permissions_metadata FOLDER = '/7 - metadata' AS SELECT username, globaladmin, rolename, dbname, elementname, elementtype, columnpermissions, rowpermissions, dbadmin, dbconnect, dbcreate, dbwrite, viewread, viewwrite, viewinsert, viewupdate, viewdelete FROM catalog_permissions(NULL,NULL);
+

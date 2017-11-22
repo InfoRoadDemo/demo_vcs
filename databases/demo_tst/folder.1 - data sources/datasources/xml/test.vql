@@ -1,0 +1,4 @@
+﻿CREATE OR REPLACE DATASOURCE XML test
+    FOLDER = '/1 - data sources'
+    ROUTE LOCAL 'VariableConnection' 'test';
+

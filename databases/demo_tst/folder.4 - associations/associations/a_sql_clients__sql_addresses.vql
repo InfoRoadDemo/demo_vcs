@@ -1,0 +1,9 @@
+﻿CREATE OR REPLACE ASSOCIATION a_sql_clients__sql_addresses REFERENTIAL CONSTRAINT 
+FOLDER = '/4 - associations'
+    ENDPOINT belongs_to_addresses p_sql_clients (0,*)
+    ENDPOINT clients p_sql_addresses PRINCIPAL (1)
+    ADD MAPPING p_sql_clients.client_id=p_sql_addresses.client_fid;
+
+ALTER ASSOCIATION a_sql_clients__sql_addresses
+ LAYOUT (p_sql_clients = [20, 20, 200, 106], p_sql_addresses = [250, 20, 200, 146]);
+

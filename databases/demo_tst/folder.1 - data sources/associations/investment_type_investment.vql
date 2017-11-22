@@ -1,0 +1,6 @@
+﻿CREATE OR REPLACE ASSOCIATION investment_type_investment REFERENTIAL CONSTRAINT 
+FOLDER = '/1 - data sources'
+    ENDPOINT investment investment_type PRINCIPAL (1)
+    ENDPOINT "investment_type_Investment_Type_Id" investment (1)
+    ADD MAPPING investment_type.investment_type_id=investment.investment_type_id;
+

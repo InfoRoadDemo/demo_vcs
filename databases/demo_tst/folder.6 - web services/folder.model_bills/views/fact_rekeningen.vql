@@ -1,0 +1,6 @@
+﻿CREATE OR REPLACE VIEW fact_rekeningen FOLDER = '/6 - web services/model_bills'
+    PRIMARY KEY ( 'rekening_id' ) AS SELECT f_ws_bills.due_date AS verval_dag, f_ws_bills.billing_start_date AS aankoop_datum, f_ws_bills.customer_id AS klant_id, f_ws_bills.package_id AS product_id, f_ws_bills.amount_due AS verschuldigd_bedrag, f_ws_bills.billing_id AS rekening_id FROM f_ws_bills;
+
+ALTER VIEW fact_rekeningen
+ LAYOUT (f_ws_bills = [20, 20, 225, 266]);
+

@@ -1,0 +1,53 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE WRAPPER JDBC loan
+    FOLDER = '/1 - data sources'
+    DATASOURCENAME=test_model
+    CATALOGNAME = '${databases.demo_tst.folder.1 - data sources.views.jdbc.loan.CATALOGNAME}'
+    RELATIONNAME='loan' 
+    OUTPUTSCHEMA (
+        loan_id = 'Loan_Id' :'java.lang.Integer' (OPT) (sourcetyperadix='10', sourcetypename='INT', sourcetypeid='4', sourcetypedecimals='0', sourcetypesize='10')  ESCAPE NOT NULL SORTABLE,
+        loan_type = 'Loan_Type' :'java.lang.Integer' (OPT) (sourcetyperadix='10', sourcetypename='INT', sourcetypeid='4', sourcetypedecimals='0', sourcetypesize='10')  ESCAPE SORTABLE,
+        loan_opening_date = 'Loan_Opening_Date' :'java.sql.Date' (OPT) (sourcetyperadix='10', sourcetypename='DATE', sourcetypeid='91', sourcetypesize='10')  ESCAPE SORTABLE,
+        account_closing_date = 'Account_Closing_Date' :'java.sql.Date' (OPT) (sourcetyperadix='10', sourcetypename='DATE', sourcetypeid='91', sourcetypesize='10')  ESCAPE SORTABLE,
+        loan_completed_date = 'Loan_Completed_Date' :'java.sql.Date' (OPT) (sourcetyperadix='10', sourcetypename='DATE', sourcetypeid='91', sourcetypesize='10')  ESCAPE SORTABLE,
+        date_timestamp = 'Date_Timestamp' :'java.sql.Timestamp' (OPT) (sourcetyperadix='10', sourcetypename='TIMESTAMP', sourcetypeid='93', sourcetypesize='19')  ESCAPE SORTABLE,
+        loan_type_id = 'Loan_Type_Id' :'java.lang.Integer' (OPT) (sourcetyperadix='10', sourcetypename='INT', sourcetypeid='4', sourcetypedecimals='0', sourcetypesize='10')  ESCAPE NOT NULL SORTABLE,
+        bank_id = 'Bank_Id' :'java.lang.Integer' (OPT) (sourcetyperadix='10', sourcetypename='INT', sourcetypeid='4', sourcetypedecimals='0', sourcetypesize='10')  ESCAPE NOT NULL SORTABLE
+    )
+    CONSTRAINT 'PRIMARY' PRIMARY KEY ( 'Loan_Id' , 'Loan_Type_Id' , 'Bank_Id' )
+    CONSTRAINT 'R_11' FOREIGN KEY ( 'Loan_Type_Id' , 'Bank_Id' ) 
+    REFERENCES 'test_bank_model'.'loan_type'( 'Loan_Type_Id' , 'Bank_Id' )  ON UPDATE NO ACTION  ON DELETE NO ACTION NOT DEFERRABLE 
+    INDEX 'PRIMARY' CLUSTER UNIQUE PRIMARY ( 'Loan_Id' , 'Loan_Type_Id' , 'Bank_Id' )
+    INDEX 'R_11' OTHER ( 'Loan_Type_Id' , 'Bank_Id' );
+
+CREATE OR REPLACE TABLE loan I18N us_pst (
+        loan_id:int (sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10', sourcetypeid = '4'), 
+        loan_type:int (sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10', sourcetypeid = '4'), 
+        loan_opening_date:date (sourcetyperadix = '10', sourcetypesize = '10', sourcetypeid = '91'), 
+        account_closing_date:date (sourcetyperadix = '10', sourcetypesize = '10', sourcetypeid = '91'), 
+        loan_completed_date:date (sourcetyperadix = '10', sourcetypesize = '10', sourcetypeid = '91'), 
+        date_timestamp:date (sourcetyperadix = '10', sourcetypesize = '19', sourcetypeid = '93'), 
+        loan_type_id:int (sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10', sourcetypeid = '4'), 
+        bank_id:int (sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10', sourcetypeid = '4')
+    )
+    FOLDER = '/1 - data sources'
+    CONSTRAINT 'PRIMARY' PRIMARY KEY ( 'loan_id' , 'loan_type_id' , 'bank_id' )
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD loan(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD loan_id (any) OPT ANY
+             ADD loan_type (any) OPT ANY
+             ADD loan_opening_date (any) OPT ANY
+             ADD account_closing_date (any) OPT ANY
+             ADD loan_completed_date (any) OPT ANY
+             ADD date_timestamp (any) OPT ANY
+             ADD loan_type_id (any) OPT ANY
+             ADD bank_id (any) OPT ANY
+        )
+        OUTPUTLIST (account_closing_date, bank_id, date_timestamp, loan_completed_date, loan_id, loan_opening_date, loan_type, loan_type_id
+        )
+        WRAPPER (jdbc loan)
+    );
+

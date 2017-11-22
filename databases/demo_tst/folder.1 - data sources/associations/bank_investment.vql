@@ -1,0 +1,6 @@
+﻿CREATE OR REPLACE ASSOCIATION bank_investment REFERENTIAL CONSTRAINT 
+FOLDER = '/1 - data sources'
+    ENDPOINT investment bank PRINCIPAL (1)
+    ENDPOINT bank investment (1)
+    ADD MAPPING bank.bank_id=investment.bank_id;
+

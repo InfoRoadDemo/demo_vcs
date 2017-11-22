@@ -1,0 +1,9 @@
+﻿CREATE OR REPLACE ASSOCIATION a_sql_clients__sql_client_types REFERENTIAL CONSTRAINT 
+FOLDER = '/4 - associations'
+    ENDPOINT belongs_to_client_types p_sql_clients (0,*)
+    ENDPOINT clients p_sql_client_types PRINCIPAL (1)
+    ADD MAPPING p_sql_clients.client_type=p_sql_client_types.code;
+
+ALTER ASSOCIATION a_sql_clients__sql_client_types
+ LAYOUT (p_sql_clients = [20, 20, 200, 106], p_sql_client_types = [250, 20, 200, 66]);
+

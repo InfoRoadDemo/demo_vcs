@@ -1,0 +1,15 @@
+﻿/databases/demo_tst/folder.6 - web services/6 - web services.vql
+/databases/demo_tst/folder.6 - web services/folder.model_bills/model_bills.vql
+/databases/demo_tst/folder.6 - web services/folder.model_bills/folder.associations/associations.vql
+/databases/demo_tst/folder.3 - derived views/3 - derived views.vql
+/databases/demo_tst/folder.3 - derived views/folder.projections/projections.vql
+/databases/demo_tst/folder.bnp_uc3/bnp_uc3.vql
+/databases/demo_tst/folder.1 - data sources/1 - data sources.vql
+/databases/demo_tst/folder.1 - data sources/datasources/jdbc/ds_mysql.vql
+/databases/demo_tst/folder.bnp_uc3/views/bv_sql_client.vql
+/databases/demo_tst/folder.3 - derived views/folder.projections/views/p_sql_clients.vql
+/databases/demo_tst/folder.6 - web services/folder.model_bills/views/klanten.vql
+/databases/demo_tst/folder.2 - base views/2 - base views.vql
+/databases/demo_tst/folder.2 - base views/views/bv_sql_client_type.vql
+/databases/demo_tst/folder.3 - derived views/folder.projections/views/p_sql_client_types.vql
+/databases/demo_tst/folder.6 - web services/folder.model_bills/views/klant_types.vql

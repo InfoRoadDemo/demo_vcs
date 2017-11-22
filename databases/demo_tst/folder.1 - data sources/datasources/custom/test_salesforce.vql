@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE DATASOURCE CUSTOM test_salesforce
+    FOLDER = '/1 - data sources'
+    CLASSNAME='com.denodo.connect.salesforce.rest.wrapper.SalesforceSOQLWrapper'
+    JARS 'denodo-salesforce-rest-wrapper-6.0';
+

@@ -1,0 +1,5 @@
+﻿CREATE OR REPLACE DATABASE demo_tst 'Demo - InfoRoad';
+
+ALTER DATABASE demo_tst
+  CHARSET DEFAULT;
+

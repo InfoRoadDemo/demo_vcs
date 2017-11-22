@@ -1,0 +1,35 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE WRAPPER JDBC bank
+    FOLDER = '/1 - data sources'
+    DATASOURCENAME=test_model
+    CATALOGNAME = '${databases.demo_tst.folder.1 - data sources.views.jdbc.bank.CATALOGNAME}'
+    RELATIONNAME='bank' 
+    OUTPUTSCHEMA (
+        bank_id = 'Bank_Id' :'java.lang.Integer' (OPT) (sourcetyperadix='10', sourcetypename='INT', sourcetypeid='4', sourcetypedecimals='0', sourcetypesize='10')  ESCAPE NOT NULL SORTABLE,
+        bank_name = 'Bank_Name' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypename='VARCHAR', sourcetypeid='12', sourcetypesize='20')  ESCAPE SORTABLE,
+        date_timestamp = 'Date_Timestamp' :'java.sql.Timestamp' (OPT) (sourcetyperadix='10', sourcetypename='TIMESTAMP', sourcetypeid='93', sourcetypesize='19')  ESCAPE SORTABLE
+    )
+    CONSTRAINT 'PRIMARY' PRIMARY KEY ( 'Bank_Id' )
+    INDEX 'PRIMARY' CLUSTER UNIQUE PRIMARY ( 'Bank_Id' );
+
+CREATE OR REPLACE TABLE bank I18N us_pst (
+        bank_id:int (sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10', sourcetypeid = '4'), 
+        bank_name:text (sourcetyperadix = '10', sourcetypesize = '20', sourcetypeid = '12'), 
+        date_timestamp:date (sourcetyperadix = '10', sourcetypesize = '19', sourcetypeid = '93')
+    )
+    FOLDER = '/1 - data sources'
+    CONSTRAINT 'PRIMARY' PRIMARY KEY ( 'bank_id' )
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD bank(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD bank_id (any) OPT ANY
+             ADD bank_name (any) OPT ANY
+             ADD date_timestamp (any) OPT ANY
+        )
+        OUTPUTLIST (bank_id, bank_name, date_timestamp
+        )
+        WRAPPER (jdbc bank)
+    );
+

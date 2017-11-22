@@ -1,0 +1,2 @@
+﻿CREATE OR REPLACE VIEW metadata_columns FOLDER = '/7 - metadata' AS SELECT database_name AS database_name, view_name AS view_name, view_type AS view_type, column_name AS column_name, column_type_name AS column_type_name, column_type AS column_type, column_type_precision AS column_type_precision, column_type_length AS column_type_length, column_type_scale AS column_type_scale, column_vdp_type_name AS column_vdp_type_name, column_description AS column_description FROM catalog_vdp_metadata_views('demo',NULL);
+

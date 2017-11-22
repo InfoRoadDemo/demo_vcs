@@ -1,0 +1,34 @@
+﻿CREATE OR REPLACE REST WEBSERVICE dv_02_bills
+    CONNECTION (
+        CHUNKSIZE = 1000
+        CHUNKTIMEOUT = 90000
+        QUERYTIMEOUT = 4000000
+        POOLENABLED = true
+        POOLINITSIZE = 0
+        POOLMAXACTIVE = 30
+    )
+    DEFAULTREPRESENTATION = HTML
+    SUPPORTEDREPRESENTATIONS (HTML, XML, JSON)
+    RESOURCES (
+        VIEW dv_02_bills FIELDS (
+            billing_id : 'text', 
+            name : 'text', 
+            surname : 'text', 
+            client_type : 'text', 
+            street : 'text', 
+            city : 'text', 
+            zip : 'text', 
+            state : 'text', 
+            primary_phone : 'text', 
+            category : 'text', 
+            brand : 'text', 
+            product_name : 'text', 
+            amount_due : 'double', 
+            due_date : 'date', 
+            username : 'text', 
+            password : 'text'
+        )
+    )
+    OPTIONS ( NULLVALUESASEMPTYXMLELEMENTS = false ) 
+    FOLDER = '/3 - derived views';
+

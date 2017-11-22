@@ -1,0 +1,29 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE WRAPPER JDBC client_type
+    FOLDER = '/1 - data sources'
+    DATASOURCENAME=ds_mysql
+    CATALOGNAME = '${databases.demo_tst.folder.1 - data sources.views.jdbc.client_type.CATALOGNAME}'
+    RELATIONNAME='client_type' 
+    OUTPUTSCHEMA (
+        code = 'code' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypename='VARCHAR', sourcetypeid='12', sourcetypesize='2')  NOT NULL SORTABLE,
+        value = 'value' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypename='VARCHAR', sourcetypeid='12', sourcetypesize='100')  ESCAPE SORTABLE
+    );
+
+CREATE OR REPLACE TABLE client_type I18N us_pst (
+        code:text (sourcetyperadix = '10', description = '', sourcetypesize = '2', sourcetypeid = '12'), 
+        value:text (sourcetyperadix = '10', description = '', sourcetypesize = '100', sourcetypeid = '12')
+    )
+    FOLDER = '/1 - data sources'
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD client_type(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD code (any) OPT ANY
+             ADD value (any) OPT ANY
+        )
+        OUTPUTLIST (code, value
+        )
+        WRAPPER (jdbc client_type)
+    );
+

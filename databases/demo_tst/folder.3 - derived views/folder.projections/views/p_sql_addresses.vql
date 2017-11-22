@@ -1,0 +1,6 @@
+﻿CREATE OR REPLACE VIEW p_sql_addresses FOLDER = '/3 - derived views/projections'
+    PRIMARY KEY ( 'client_fid' ) AS SELECT addresses.client_fid AS client_fid, addresses.street AS street, addresses.city AS city, addresses.zip AS zip, addresses.state AS state, addresses.primary_phone AS primary_phone FROM addresses;
+
+ALTER VIEW p_sql_addresses
+ LAYOUT (addresses = [20, 20, 200, 146]);
+

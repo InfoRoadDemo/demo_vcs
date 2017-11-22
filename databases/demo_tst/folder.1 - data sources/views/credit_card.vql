@@ -1,0 +1,56 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE WRAPPER JDBC credit_card
+    FOLDER = '/1 - data sources'
+    DATASOURCENAME=test_model
+    CATALOGNAME = '${databases.demo_tst.folder.1 - data sources.views.jdbc.credit_card.CATALOGNAME}'
+    RELATIONNAME='credit_card' 
+    OUTPUTSCHEMA (
+        credit_card_id = 'Credit_Card_Id' :'java.lang.Integer' (OPT) (sourcetyperadix='10', sourcetypename='INT', sourcetypeid='4', sourcetypedecimals='0', sourcetypesize='10')  ESCAPE NOT NULL SORTABLE,
+        credit_card_type = 'Credit_Card_Type' :'java.lang.Integer' (OPT) (sourcetyperadix='10', sourcetypename='INT', sourcetypeid='4', sourcetypedecimals='0', sourcetypesize='10')  ESCAPE SORTABLE,
+        credit_card_number = 'Credit_Card_Number' :'java.lang.Integer' (OPT) (sourcetyperadix='10', sourcetypename='INT', sourcetypeid='4', sourcetypedecimals='0', sourcetypesize='10')  ESCAPE SORTABLE,
+        credit_card_expiry_month = 'Credit_Card_Expiry_Month' :'java.lang.Integer' (OPT) (sourcetyperadix='10', sourcetypename='INT', sourcetypeid='4', sourcetypedecimals='0', sourcetypesize='10')  ESCAPE SORTABLE,
+        credit_card_expiry_year = 'Credit_Card_Expiry_Year' :'java.lang.Integer' (OPT) (sourcetyperadix='10', sourcetypename='INT', sourcetypeid='4', sourcetypedecimals='0', sourcetypesize='10')  ESCAPE SORTABLE,
+        date_timestamp = 'Date_Timestamp' :'java.sql.Timestamp' (OPT) (sourcetyperadix='10', sourcetypename='TIMESTAMP', sourcetypeid='93', sourcetypesize='19')  ESCAPE SORTABLE,
+        bank_id = 'Bank_Id' :'java.lang.Integer' (OPT) (sourcetyperadix='10', sourcetypename='INT', sourcetypeid='4', sourcetypedecimals='0', sourcetypesize='10')  ESCAPE NOT NULL SORTABLE,
+        credit_card_type_id = 'Credit_Card_Type_Id' :'java.lang.Integer' (OPT) (sourcetyperadix='10', sourcetypename='INT', sourcetypeid='4', sourcetypedecimals='0', sourcetypesize='10')  ESCAPE NOT NULL SORTABLE
+    )
+    CONSTRAINT 'PRIMARY' PRIMARY KEY ( 'Credit_Card_Id' , 'Bank_Id' , 'Credit_Card_Type_Id' )
+    CONSTRAINT 'R_12' FOREIGN KEY ( 'Bank_Id' ) 
+    REFERENCES 'test_bank_model'.'bank'( 'Bank_Id' )  ON UPDATE NO ACTION  ON DELETE NO ACTION NOT DEFERRABLE 
+    CONSTRAINT 'R_15' FOREIGN KEY ( 'Credit_Card_Type_Id' ) 
+    REFERENCES 'test_bank_model'.'credit_card_type'( 'Credit_Card_Type_Id' )  ON UPDATE NO ACTION  ON DELETE NO ACTION NOT DEFERRABLE 
+    INDEX 'PRIMARY' CLUSTER UNIQUE PRIMARY ( 'Credit_Card_Id' , 'Bank_Id' , 'Credit_Card_Type_Id' )
+    INDEX 'R_12' OTHER ( 'Bank_Id' )
+    INDEX 'R_15' OTHER ( 'Credit_Card_Type_Id' );
+
+CREATE OR REPLACE TABLE credit_card I18N us_pst (
+        credit_card_id:int (sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10', sourcetypeid = '4'), 
+        credit_card_type:int (sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10', sourcetypeid = '4'), 
+        credit_card_number:int (sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10', sourcetypeid = '4'), 
+        credit_card_expiry_month:int (sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10', sourcetypeid = '4'), 
+        credit_card_expiry_year:int (sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10', sourcetypeid = '4'), 
+        date_timestamp:date (sourcetyperadix = '10', sourcetypesize = '19', sourcetypeid = '93'), 
+        bank_id:int (sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10', sourcetypeid = '4'), 
+        credit_card_type_id:int (sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10', sourcetypeid = '4')
+    )
+    FOLDER = '/1 - data sources'
+    CONSTRAINT 'PRIMARY' PRIMARY KEY ( 'credit_card_id' , 'bank_id' , 'credit_card_type_id' )
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD credit_card(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD credit_card_id (any) OPT ANY
+             ADD credit_card_type (any) OPT ANY
+             ADD credit_card_number (any) OPT ANY
+             ADD credit_card_expiry_month (any) OPT ANY
+             ADD credit_card_expiry_year (any) OPT ANY
+             ADD date_timestamp (any) OPT ANY
+             ADD bank_id (any) OPT ANY
+             ADD credit_card_type_id (any) OPT ANY
+        )
+        OUTPUTLIST (bank_id, credit_card_expiry_month, credit_card_expiry_year, credit_card_id, credit_card_number, credit_card_type, credit_card_type_id, date_timestamp
+        )
+        WRAPPER (jdbc credit_card)
+    );
+

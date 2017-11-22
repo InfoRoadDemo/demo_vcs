@@ -1,0 +1,24 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE DATASOURCE CUSTOM products_electronics
+    FOLDER = '/1 - data sources'
+    CLASSNAME='com.denodo.vdb.contrib.wrapper.xls.ExcelWrapper';
+
+CREATE OR REPLACE WRAPPER CUSTOM products_electronics
+    FOLDER = '/1 - data sources'
+    DATASOURCENAME=products_electronics
+    PARAMETERS (
+      'Type of file' = 'Excel 2007 or later (*.xlsx)',
+      'File location' = ROUTE LOCAL 'LocalConnection' '${databases.demo_tst.folder.1 - data sources.views.custom.products_electronics.File location.ROUTE.LOCAL.PATH}',
+      'Extract data from all sheets' = true,
+      'Extract sheet name as a new column' = false,
+      'Has headers' = true,
+      'Stream tuples' = true
+    )
+    OUTPUTSCHEMA (
+        "Product_id" = 'Product_id' : 'java.lang.String' (OPT) SORTABLE,
+        "Category" = 'Category' : 'java.lang.String' (OPT) SORTABLE,
+        "Brand" = 'Brand' : 'java.lang.String' (OPT) SORTABLE,
+        "Product_name" = 'Product_name' : 'java.lang.String' (OPT) SORTABLE,
+        "Description" = 'Description' : 'java.lang.String' (OPT) SORTABLE
+    );
+

@@ -1,0 +1,5 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+UNDEPLOY IF EXISTS WEBSERVICE dv_02_bills;
+
+DEPLOY WEBSERVICE dv_02_bills LOGIN = '${databases.demo_tst.webcontainer.webservices.dv_02_bills.LOGIN}' PASSWORD = '${databases.demo_tst.webcontainer.webservices.dv_02_bills.PASSWORD}' ${databases.demo_tst.webcontainer.webservices.dv_02_bills.PASSWORD.ENCRYPTED};
+

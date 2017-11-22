@@ -1,0 +1,6 @@
+﻿CREATE OR REPLACE VIEW klanten FOLDER = '/6 - web services/model_bills'
+    PRIMARY KEY ( 'klant_id' ) AS SELECT p_sql_clients.client_id AS klant_id, p_sql_clients.name AS naam, p_sql_clients.surname AS voornaam, p_sql_clients.client_type AS klant_type_id FROM p_sql_clients;
+
+ALTER VIEW klanten
+ LAYOUT (p_sql_clients = [20, 20, 200, 106]);
+

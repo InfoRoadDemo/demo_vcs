@@ -1,0 +1,9 @@
+﻿CREATE OR REPLACE VIEW dv_01_client_information FOLDER = '/3 - derived views'
+    PRIMARY KEY ( 'client_id' ) AS SELECT p_sql_clients.client_id AS client_id, p_sql_clients.name AS name, p_sql_clients.surname AS surname, p_sql_client_types.value AS client_type, p_sql_addresses.street AS street, p_sql_addresses.city AS city, p_sql_addresses.zip AS zip, p_sql_addresses.state AS state, p_sql_addresses.primary_phone AS primary_phone, dv_01_user_details.username AS user_detail_username, dv_01_user_details.password AS user_detail_password FROM ((p_sql_clients AS p_sql_clients LEFT OUTER JOIN p_sql_client_types AS p_sql_client_types ON p_sql_clients.client_type = p_sql_client_types.code ) LEFT OUTER JOIN p_sql_addresses AS p_sql_addresses ON p_sql_clients.client_id = p_sql_addresses.client_fid ) LEFT OUTER JOIN dv_01_user_details AS dv_01_user_details ON p_sql_clients.client_id = dv_01_user_details.user_id ;
+
+ALTER VIEW dv_01_client_information
+ LAYOUT (p_sql_clients = [360, 50, 200, 106], p_sql_client_types = [780, 310, 200, 66], p_sql_addresses = [790, 50, 200, 146], dv_01_user_details = [210, 390, 200, 166]);
+
+ALTER VIEW dv_01_client_information
+     DELEGATESTATSQUERY = false;
+

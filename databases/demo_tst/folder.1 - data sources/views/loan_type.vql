@@ -1,0 +1,41 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE WRAPPER JDBC loan_type
+    FOLDER = '/1 - data sources'
+    DATASOURCENAME=test_model
+    CATALOGNAME = '${databases.demo_tst.folder.1 - data sources.views.jdbc.loan_type.CATALOGNAME}'
+    RELATIONNAME='loan_type' 
+    OUTPUTSCHEMA (
+        loan_type_id = 'Loan_Type_Id' :'java.lang.Integer' (OPT) (sourcetyperadix='10', sourcetypename='INT', sourcetypeid='4', sourcetypedecimals='0', sourcetypesize='10')  ESCAPE NOT NULL SORTABLE,
+        loan_type_description = 'Loan_Type_Description' :'java.lang.String' (OPT) (sourcetyperadix='10', sourcetypename='VARCHAR', sourcetypeid='12', sourcetypesize='20')  ESCAPE SORTABLE,
+        date_timestamp = 'Date_Timestamp' :'java.sql.Timestamp' (OPT) (sourcetyperadix='10', sourcetypename='TIMESTAMP', sourcetypeid='93', sourcetypesize='19')  ESCAPE SORTABLE,
+        bank_id = 'Bank_Id' :'java.lang.Integer' (OPT) (sourcetyperadix='10', sourcetypename='INT', sourcetypeid='4', sourcetypedecimals='0', sourcetypesize='10')  ESCAPE NOT NULL SORTABLE
+    )
+    CONSTRAINT 'PRIMARY' PRIMARY KEY ( 'Loan_Type_Id' , 'Bank_Id' )
+    CONSTRAINT 'R_10' FOREIGN KEY ( 'Bank_Id' ) 
+    REFERENCES 'test_bank_model'.'bank'( 'Bank_Id' )  ON UPDATE NO ACTION  ON DELETE NO ACTION NOT DEFERRABLE 
+    INDEX 'PRIMARY' CLUSTER UNIQUE PRIMARY ( 'Loan_Type_Id' , 'Bank_Id' )
+    INDEX 'R_10' OTHER ( 'Bank_Id' );
+
+CREATE OR REPLACE TABLE loan_type I18N us_pst (
+        loan_type_id:int (sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10', sourcetypeid = '4'), 
+        loan_type_description:text (sourcetyperadix = '10', sourcetypesize = '20', sourcetypeid = '12'), 
+        date_timestamp:date (sourcetyperadix = '10', sourcetypesize = '19', sourcetypeid = '93'), 
+        bank_id:int (sourcetyperadix = '10', sourcetypedecimals = '0', sourcetypesize = '10', sourcetypeid = '4')
+    )
+    FOLDER = '/1 - data sources'
+    CONSTRAINT 'PRIMARY' PRIMARY KEY ( 'loan_type_id' , 'bank_id' )
+    CACHE OFF
+    TIMETOLIVEINCACHE DEFAULT
+    ADD SEARCHMETHOD loan_type(
+        I18N us_pst
+        CONSTRAINTS (
+             ADD loan_type_id (any) OPT ANY
+             ADD loan_type_description (any) OPT ANY
+             ADD date_timestamp (any) OPT ANY
+             ADD bank_id (any) OPT ANY
+        )
+        OUTPUTLIST (bank_id, date_timestamp, loan_type_description, loan_type_id
+        )
+        WRAPPER (jdbc loan_type)
+    );
+

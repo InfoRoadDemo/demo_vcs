@@ -1,0 +1,9 @@
+﻿CREATE OR REPLACE ASSOCIATION a_ws_bills__products REFERENTIAL CONSTRAINT 
+FOLDER = '/4 - associations'
+    ENDPOINT belongs_to_products f_ws_bills (0,*)
+    ENDPOINT bills dv_01_products PRINCIPAL (1)
+    ADD MAPPING f_ws_bills.package_id=dv_01_products.product_id;
+
+ALTER ASSOCIATION a_ws_bills__products
+ LAYOUT (f_ws_bills = [20, 20, 200, 225], dv_01_products = [250, 20, 200, 126]);
+

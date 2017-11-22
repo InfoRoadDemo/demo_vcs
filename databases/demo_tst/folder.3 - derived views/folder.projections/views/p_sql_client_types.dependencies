@@ -1,0 +1,6 @@
+﻿/databases/demo_tst/folder.3 - derived views/3 - derived views.vql
+/databases/demo_tst/folder.3 - derived views/folder.projections/projections.vql
+/databases/demo_tst/folder.2 - base views/2 - base views.vql
+/databases/demo_tst/folder.1 - data sources/1 - data sources.vql
+/databases/demo_tst/folder.1 - data sources/datasources/jdbc/ds_mysql.vql
+/databases/demo_tst/folder.2 - base views/views/bv_sql_client_type.vql

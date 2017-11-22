@@ -1,0 +1,9 @@
+﻿# REQUIRES-PROPERTIES-FILE - # Do not remove this comment!
+CREATE OR REPLACE DATASOURCE WS bnp
+    FOLDER = '/1 - data sources'
+    WSDLURI = '${databases.demo_tst.folder.1 - data sources.datasources.ws.bnp.WSDLURI}'
+    MAXCONNECTIONS 50
+    CONNECTIONPOOLTIMEOUT 0
+    AUTHENTICATION OFF
+    PROXY OFF;
+
